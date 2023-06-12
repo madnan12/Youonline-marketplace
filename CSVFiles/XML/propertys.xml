@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838564.4481883</loc>
+<lastmod>2022-04-13 08:29:24.448760+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838583.8637967</loc>
+<lastmod>2022-04-13 08:29:43.864393+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838585.1525047</loc>
+<lastmod>2022-04-13 08:29:45.153185+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838586.4616704</loc>
+<lastmod>2022-04-13 08:29:46.462334+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838587.7176847</loc>
+<lastmod>2022-04-13 08:29:47.718098+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838588.8984585</loc>
+<lastmod>2022-04-13 08:29:48.898933+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838892.0573506</loc>
+<lastmod>2022-04-13 08:34:52.058003+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838952.1768308</loc>
+<lastmod>2022-04-13 08:35:52.177345+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838953.738246</loc>
+<lastmod>2022-04-13 08:35:53.739316+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>http://127.0.0.1:8000/property-1-1649838955.0524757</loc>
+<lastmod>2022-04-13 08:35:55.052923+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property</loc>
+<lastmod>2022-09-13 07:08:46.752644+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-632a</loc>
+<lastmod>2022-09-13 07:13:16.057898+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property</loc>
+<lastmod>2022-09-21 05:01:53.100478+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-E63A</loc>
+<lastmod>2022-09-21 05:02:24.341671+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-Fed6</loc>
+<lastmod>2022-09-21 05:04:32.024838+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-2A06</loc>
+<lastmod>2022-09-21 11:01:36.562341+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-Fc9A</loc>
+<lastmod>2022-09-21 11:09:27.859006+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-40Fb</loc>
+<lastmod>2022-09-21 11:10:03.060184+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-FDB6</loc>
+<lastmod>2022-09-21 11:11:02.630804+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-768c</loc>
+<lastmod>2022-09-21 11:15:53.285924+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-37c8</loc>
+<lastmod>2022-09-21 11:16:24.051431+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-ff4E</loc>
+<lastmod>2022-09-21 11:17:03.718742+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-4C2f</loc>
+<lastmod>2022-09-21 11:17:52.375899+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-0Eab</loc>
+<lastmod>2022-09-21 11:18:27.846978+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/testing-property-fDE3</loc>
+<lastmod>2022-09-27 12:33:17.088567+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/mountain-villa</loc>
+<lastmod>2022-10-03 11:58:00.238355+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/ed-villa</loc>
+<lastmod>2022-10-04 06:01:51.296087+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/mountain-villa2</loc>
+<lastmod>2022-10-04 06:16:08.654581+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/property-ad-999</loc>
+<lastmod>2022-10-07 10:35:33.152255+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/property-267</loc>
+<lastmod>2022-10-10 11:39:41.439999+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/villa-227</loc>
+<lastmod>2022-10-13 12:09:33.989601+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/house-225</loc>
+<lastmod>2022-10-14 11:22:32.426418+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/property-12</loc>
+<lastmod>2022-10-21 06:56:59.024813+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/commercial-property-167</loc>
+<lastmod>2022-10-21 07:03:14.051143+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/land-6655</loc>
+<lastmod>2022-10-21 07:05:28.357679+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location</loc>
+<lastmod>2022-10-27 06:50:02.366835+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-Ed80</loc>
+<lastmod>2022-10-27 06:50:57.104090+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/property-2217</loc>
+<lastmod>2022-10-27 08:12:12.866126+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/property-villa</loc>
+<lastmod>2022-10-28 05:45:54.895351+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/commercial-land</loc>
+<lastmod>2022-10-28 07:59:17.774432+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location</loc>
+<lastmod>2022-11-02 06:02:31.098060+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/this-is-property-ad-0012</loc>
+<lastmod>2022-11-07 12:11:49.174637+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-cA53</loc>
+<lastmod>2022-11-15 13:13:40.943817+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-5bf6</loc>
+<lastmod>2022-11-15 13:24:23.956398+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-46EF</loc>
+<lastmod>2022-11-15 13:24:55.080045+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-EDBa</loc>
+<lastmod>2022-11-15 13:25:19.843427+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-property-for-location-214A</loc>
+<lastmod>2022-11-16 10:45:05.802881+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/by-plot</loc>
+<lastmod>2022-11-16 12:22:00.873974+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/villa-556</loc>
+<lastmod>2022-11-17 05:15:45.012360+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/apartment-267</loc>
+<lastmod>2022-11-17 05:17:45.795783+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/apartment-267-cf0c</loc>
+<lastmod>2022-11-17 05:19:08.174048+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/apartment-267-4C32</loc>
+<lastmod>2022-11-17 05:23:09.984502+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>/test-adnan</loc>
+<lastmod>2022-11-17 12:39:45.413973+00:00</lastmod>
+<priority>0.8</priority>
+</url>
+</urlset>

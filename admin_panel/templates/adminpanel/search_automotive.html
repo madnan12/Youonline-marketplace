@@ -1,0 +1,266 @@
+{% extends 'adminpanel/base.html' %}
+
+{% load pagination_tags %}
+
+{% block title %}
+Search Automotive
+{% endblock %}
+
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <form action="" method="get" class="row gy-2 gx-3 align-items-center">
+                                    <h4 class="card-title m-0 pe-4">Search Automotives</h4>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded" id="id1"
+                                            placeholder="title" name="name" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded" id="id3"
+                                            placeholder="created by" name="admin" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <select class="form-select form-select-sm bg-light border-light rounded"
+                                            id="id2" name="category">
+                                            <option value="" selected>Select Category</option>
+
+                                            {% for c in automotive_category %}
+                                            <option value="{{c.title}}">{{c.title}}</option>
+                                            {% endfor %}
+
+
+
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <select class="form-select form-select-sm bg-light border-light rounded"
+                                            id="id4" name="brand">
+                                            <option value="" selected>Select Brand</option>
+                                            {% for b in automotive_brand %}
+                                            <option value="{{b.title}}">{{b.title}}</option>
+
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive" id="container-div">
+                                {% if automotives %}
+                                <table class="table align-middle table-nowrap mb-0" id="all-data-row">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">Title</th>
+                                            <th class="align-middle">Price</th>
+                                            <th class="align-middle">Category</th>
+                                            <th class="align-middle">Verification</th>
+                                            <th class="align-middle">Created by</th>
+                                            <th class="align-middle">Promoted</th>
+                                            <th class="align-middle">Brand</th>
+                                            <th class="align-middle">Created at</th>
+                                            <th class="align-middle">Delete</th>
+                                            <th class="align-middle">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for a in automotives %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                {{ forloop.counter0|add:automotives.start_index }}
+                                            </td>
+                                            <td>
+                                                <div class="word-clamping">{{a.name}}</div>
+                                            </td>
+                                            <td>{{a.price}}</td>
+                                            <td>{{a.category.title}}</td>
+                                            <td><i class="fa fa-check-circle mx-4 text-success
+                                                "></i></td>
+                                            <td> {{a.profile.user}}</td>
+                                            <td>
+
+                                                {% if a.is_promoted %}
+                                                <i class="fa fa-check-circle mx-4 text-success"></i>
+                                                {% else %}
+                                                <i class="fa fa-times-circle mx-4 text-danger"></i>
+                                                {% endif %}
+                                            </td>
+                                            <td> {{a.make.title}}</td>
+                                            <td>{{a.created_at}}</td>
+                                            <td>
+
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                                    data-sid={{a.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <a href="{{front_end_server}}/{{automotive}}/{{a.slug}}" type="button"
+                                                    target="_blank"
+                                                    class="btn btn-primary btn-rounded waves-effect waves-light">
+
+                                                    <i class="fas fa-eye    "></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <br><br> <br><br>
+                                <h4 class="text-center">No Result Found</h4>
+                                <br><br>
+                                {% endif %}
+                            </div>
+                            <!-- end table-responsive -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul
+                        class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if automotives.has_previous %}
+                        <li class="page-item ">
+                            <a href="?{% url_replace request 'page' automotives.previous_page_number %}"
+                                class="page-link" onMouseOver="this.style.color='#0F0'"
+                                onMouseOut="this.style.color='#00F'"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{automotives.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+
+                        <li class="page-item">
+                            {{automotives.paginator.num_pages}}
+                        </li>
+
+                        {% if automotives.has_next %}
+                        <li class="page-item">
+                            <a href="?{% url_replace request 'page' automotives.next_page_number %}"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"
+                                class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <a type="button" href="{% url 'admin_panel_view_automotives' %}"
+                class="btn btn-success btn-sm text-center">back</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let automotivename = document.getElementById('id1');
+    let automotivecategory = document.getElementById('id2');
+    let adminname = document.getElementById('id3');
+    let brand = document.getElementById('id4');
+
+    automotivename.addEventListener('input', check)
+    automotivecategory.addEventListener('input', check)
+    adminname.addEventListener('input', check)
+    brand.addEventListener('input', check)
+
+
+    function check() {
+        if (automotivename.value == '' && automotivecategory.value == '' && adminname.value == '' && brand.value == '') {
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        console.log(id)
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { aid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_automotive' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("Automotive deleted successfuly!");
+
+
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+
+                }
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0) {
+                    let my_data_div = document.getElementById('all-data-row')
+                    my_data_div.remove()
+                    let container_div = document.getElementById('container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Result Found</h4>  <br><br>`
+                    container_div.innerHTML = new_content
+                }
+
+            },
+
+        })
+    });
+</script>
+
+
+{% endblock %}

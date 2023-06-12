@@ -1,0 +1,112 @@
+{% load static %}
+
+<div id="layout-wrapper">
+<header id="page-topbar">
+    <div class="navbar-header ">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="{% url 'admin_panel_login' %}" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="{% static 'adminpanel/assets/images/YOfevicon.png' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{% static 'adminpanel/assets/images/YouOnline.svg' %}" alt="" height="17">
+                    </span>
+                </a>
+
+                <a href="{% url 'admin_panel_login' %}" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="{% static 'adminpanel/assets/images/YOfevicon.png' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{% static 'adminpanel/assets/images/YouOnline.svg' %}" alt="" height="19">
+                    </span>
+                </a>
+            </div>
+
+            <!-- <form class="app-search d-none d-lg-block mx-5">
+                <div class="position-relative">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="bx bx-search-alt"></span>
+                </div>
+            </form> -->
+
+       
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block d-lg-none ms-2">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="mdi mdi-magnify"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-search-dropdown">
+
+                    <form class="p-3">
+                        <div class="form-group m-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                    <i class="bx bx-fullscreen"></i>
+                </button>
+            </div>
+  
+            {% if user.is_authenticated %}
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" src="{% static 'adminpanel/assets/images/users/avatar-1.jpg' %}"
+                        alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user.username}}</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a class="dropdown-item" href="{% url 'admin_panel_profile'%}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                    <a class="dropdown-item" href="{% url 'password_change' %}"><i class="fa fa-key font-size-16 align-middle me-1"></i> <span key="t-change-password">Change Password</span></a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="{% url 'admin_panel_logout' %}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                </div>
+            </div>
+            {% else %}
+    
+            <a href="{% url 'admin_panel_login' %}">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown">
+                    <i class="bx bx-log-in font-size-16 align-middle me-1 "></i>            
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">Login</span>
+                   
+                </button>
+            </a>
+            
+            
+            {% endif %}
+
+        </div>
+    </div>
+</header>
+
+<div class="main-content">
+
+ 
+  
+{% include 'adminpanel/partial/footer.html'%}
+
+</div>
+
+
+</div>

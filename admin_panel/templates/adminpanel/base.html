@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>
+
+        {% block title %}
+
+        {% endblock %}
+
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description' %}" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'adminpanel/assets/images/YOfevicon.png' %}">
+
+    <!-- Bootstrap Css -->
+    <link href="{% static 'adminpanel/assets/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
+    <!-- Icons Css -->
+    <link href="{% static 'adminpanel/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{% static 'adminpanel/assets/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'adminpanel/mystyle.css'%}">
+    <script src="{% static 'adminpanel/assets/js/bootstrap.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</head>
+
+<body data-sidebar="dark">
+
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+    <script src="{% static 'adminpanel/assets/libs/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'adminpanel/assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'adminpanel/assets/libs/metismenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'adminpanel/assets/libs/simplebar/simplebar.min.js' %}"></script>
+    <script src="{% static 'adminpanel/assets/libs/node-waves/waves.min.js' %}"></script>
+
+
+    <!-- App js -->
+    <script src="{% static 'adminpanel/assets/js/app.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'adminpanel/assets/libs/assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{% static 'adminpanel/assets/js/pages/apexcharts.init.js' %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- apexcharts -->
+
+
+    <script>
+        setTimeout(function () {
+            $('.loader_bg').fadeToggle();
+        }, 1000);
+    </script>
+
+
+</body>
+
+</html>

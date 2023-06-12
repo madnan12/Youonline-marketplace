@@ -1,0 +1,551 @@
+[
+  {
+    "Home Audio & Turntables": "Samsung",
+    "Televisions": "Samsung",
+    "DVD & Home Theater": "Samsung",
+    "Electronic Accessories": "Samsung",
+    "Gadgets": "Samsung",
+    "Car Electronics": "Samsung",
+    "Mp3 Players and Portable Audio": "Samsung",
+    "Satellite & Cable TV": "Samsung",
+    "Wearable Technology": "Samsung"
+  },
+  {
+    "Home Audio & Turntables": "Sony",
+    "Televisions": "Sony",
+    "DVD & Home Theater": "Sony",
+    "Electronic Accessories": "Sony",
+    "Gadgets": "Sony",
+    "Car Electronics": "Sony",
+    "Mp3 Players and Portable Audio": "Sony",
+    "Satellite & Cable TV": "Sony",
+    "Wearable Technology": "Sony"
+  },
+  {
+    "Home Audio & Turntables": "HP",
+    "Televisions": "HP",
+    "DVD & Home Theater": "HP",
+    "Electronic Accessories": "HP",
+    "Gadgets": "HP",
+    "Car Electronics": "HP",
+    "Mp3 Players and Portable Audio": "HP",
+    "Satellite & Cable TV": "HP",
+    "Wearable Technology": "HP"
+  },
+  {
+    "Home Audio & Turntables": "Lenovo",
+    "Televisions": "Lenovo",
+    "DVD & Home Theater": "Lenovo",
+    "Electronic Accessories": "Lenovo",
+    "Gadgets": "Lenovo",
+    "Car Electronics": "Lenovo",
+    "Mp3 Players and Portable Audio": "Lenovo",
+    "Satellite & Cable TV": "Lenovo",
+    "Wearable Technology": "Lenovo"
+  },
+  {
+    "Home Audio & Turntables": "Canon",
+    "Televisions": "Canon",
+    "DVD & Home Theater": "Canon",
+    "Electronic Accessories": "Canon",
+    "Gadgets": "Canon",
+    "Car Electronics": "Canon",
+    "Mp3 Players and Portable Audio": "Canon",
+    "Satellite & Cable TV": "Canon",
+    "Wearable Technology": "Canon"
+  },
+  {
+    "Home Audio & Turntables": "Huawei",
+    "Televisions": "Huawei",
+    "DVD & Home Theater": "Huawei",
+    "Electronic Accessories": "Huawei",
+    "Gadgets": "Huawei",
+    "Car Electronics": "Huawei",
+    "Mp3 Players and Portable Audio": "Huawei",
+    "Satellite & Cable TV": "Huawei",
+    "Wearable Technology": "Huawei"
+  },
+  {
+    "Home Audio & Turntables": "Logitech",
+    "Televisions": "Logitech",
+    "DVD & Home Theater": "Logitech",
+    "Electronic Accessories": "Logitech",
+    "Gadgets": "Logitech",
+    "Car Electronics": "Logitech",
+    "Mp3 Players and Portable Audio": "Logitech",
+    "Satellite & Cable TV": "Logitech",
+    "Wearable Technology": "Logitech"
+  },
+  {
+    "Home Audio & Turntables": "Microsoft",
+    "Televisions": "Microsoft",
+    "DVD & Home Theater": "Microsoft",
+    "Electronic Accessories": "Microsoft",
+    "Gadgets": "Microsoft",
+    "Car Electronics": "Microsoft",
+    "Mp3 Players and Portable Audio": "Microsoft",
+    "Satellite & Cable TV": "Microsoft",
+    "Wearable Technology": "Microsoft"
+  },
+  {
+    "Home Audio & Turntables": "Apple",
+    "Televisions": "Apple",
+    "DVD & Home Theater": "Apple",
+    "Electronic Accessories": "Apple",
+    "Gadgets": "Apple",
+    "Car Electronics": "Apple",
+    "Mp3 Players and Portable Audio": "Apple",
+    "Satellite & Cable TV": "Apple",
+    "Wearable Technology": "Apple"
+  },
+  {
+    "Home Audio & Turntables": "Dell",
+    "Televisions": "Dell",
+    "DVD & Home Theater": "Dell",
+    "Electronic Accessories": "Dell",
+    "Gadgets": "Dell",
+    "Car Electronics": "Dell",
+    "Mp3 Players and Portable Audio": "Dell",
+    "Satellite & Cable TV": "Dell",
+    "Wearable Technology": "Dell"
+  },
+  {
+    "Home Audio & Turntables": "Philips",
+    "Televisions": "Philips",
+    "DVD & Home Theater": "Philips",
+    "Electronic Accessories": "Philips",
+    "Gadgets": "Philips",
+    "Car Electronics": "Philips",
+    "Mp3 Players and Portable Audio": "Philips",
+    "Satellite & Cable TV": "Philips",
+    "Wearable Technology": "Philips"
+  },
+  {
+    "Home Audio & Turntables": "Kenwood",
+    "Televisions": "Kenwood",
+    "DVD & Home Theater": "Kenwood",
+    "Electronic Accessories": "Kenwood",
+    "Gadgets": "Kenwood",
+    "Car Electronics": "Kenwood",
+    "Mp3 Players and Portable Audio": "Kenwood",
+    "Satellite & Cable TV": "Kenwood",
+    "Wearable Technology": "Kenwood"
+  },
+  {
+    "Home Audio & Turntables": "Acer",
+    "Televisions": "Acer",
+    "DVD & Home Theater": "Acer",
+    "Electronic Accessories": "Acer",
+    "Gadgets": "Acer",
+    "Car Electronics": "Acer",
+    "Mp3 Players and Portable Audio": "Acer",
+    "Satellite & Cable TV": "Acer",
+    "Wearable Technology": "Acer"
+  },
+  {
+    "Home Audio & Turntables": "Other",
+    "Televisions": "Other",
+    "DVD & Home Theater": "Other",
+    "Electronic Accessories": "Other",
+    "Gadgets": "Other",
+    "Car Electronics": "Other",
+    "Mp3 Players and Portable Audio": "Other",
+    "Satellite & Cable TV": "Other",
+    "Wearable Technology": "Other"
+  },
+  {
+    "Computers": "Samsung",
+    "Accessories": "Samsung",
+    "Software": "Samsung",
+    "Computer Components": "Samsung",
+    "Networking & Communication": "Samsung",
+    "Monitors, Printers & Other Peripherals": "Samsung"
+  },
+  {
+    "Computers": "Sony",
+    "Accessories": "Sony",
+    "Software": "Sony",
+    "Computer Components": "Sony",
+    "Networking & Communication": "Sony",
+    "Monitors, Printers & Other Peripherals": "Sony"
+  },
+  {
+    "Computers": "HP",
+    "Accessories": "HP",
+    "Software": "HP",
+    "Computer Components": "HP",
+    "Networking & Communication": "HP",
+    "Monitors, Printers & Other Peripherals": "HP"
+  },
+  {
+    "Computers": "Lenovo",
+    "Accessories": "Lenovo",
+    "Software": "Lenovo",
+    "Computer Components": "Lenovo",
+    "Networking & Communication": "Lenovo",
+    "Monitors, Printers & Other Peripherals": "Lenovo"
+  },
+  {
+    "Computers": "Canon",
+    "Accessories": "Canon",
+    "Software": "Canon",
+    "Computer Components": "Canon",
+    "Networking & Communication": "Canon",
+    "Monitors, Printers & Other Peripherals": "Canon"
+  },
+  {
+    "Computers": "Huawei",
+    "Accessories": "Huawei",
+    "Software": "Huawei",
+    "Computer Components": "Huawei",
+    "Networking & Communication": "Huawei",
+    "Monitors, Printers & Other Peripherals": "Huawei"
+  },
+  {
+    "Computers": "Logitech",
+    "Accessories": "Logitech",
+    "Software": "Logitech",
+    "Computer Components": "Logitech",
+    "Networking & Communication": "Logitech",
+    "Monitors, Printers & Other Peripherals": "Logitech"
+  },
+  {
+    "Computers": "Microsoft",
+    "Accessories": "Microsoft",
+    "Software": "Microsoft",
+    "Computer Components": "Microsoft",
+    "Networking & Communication": "Microsoft",
+    "Monitors, Printers & Other Peripherals": "Microsoft"
+  },
+  {
+    "Computers": "Apple",
+    "Accessories": "Apple",
+    "Software": "Apple",
+    "Computer Components": "Apple",
+    "Networking & Communication": "Apple",
+    "Monitors, Printers & Other Peripherals": "Apple"
+  },
+  {
+    "Computers": "Dell",
+    "Accessories": "Dell",
+    "Software": "Dell",
+    "Computer Components": "Dell",
+    "Networking & Communication": "Dell",
+    "Monitors, Printers & Other Peripherals": "Dell"
+  },
+  {
+    "Computers": "Philips",
+    "Accessories": "Philips",
+    "Software": "Philips",
+    "Computer Components": "Philips",
+    "Networking & Communication": "Philips",
+    "Monitors, Printers & Other Peripherals": "Philips"
+  },
+  {
+    "Computers": "Acer",
+    "Accessories": "Acer",
+    "Software": "Acer",
+    "Computer Components": "Acer",
+    "Networking & Communication": "Acer",
+    "Monitors, Printers & Other Peripherals": "Acer"
+  },
+  {
+    "Computers": "Other",
+    "Accessories": "Other",
+    "Software": "Other",
+    "Computer Components": "Other",
+    "Networking & Communication": "Other",
+    "Monitors, Printers & Other Peripherals": "Other"
+  },
+  {
+    "Large Appliances / White Goods": "Samsung",
+    "Small Kitchen Appliances": "Samsung",
+    "Outdoor Appliances": "Samsung",
+    "Small Bathroom Appliances": "Samsung"
+  },
+  {
+    "Large Appliances / White Goods": "Philips",
+    "Small Kitchen Appliances": "Philips",
+    "Outdoor Appliances": "Philips",
+    "Small Bathroom Appliances": "Philips"
+  },
+  {
+    "Large Appliances / White Goods": "Others",
+    "Small Kitchen Appliances": "Others",
+    "Outdoor Appliances": "Others",
+    "Small Bathroom Appliances": "Others"
+  },
+  {
+    "Cycling": "Adidas",
+    "Exercise Equipment": "Adidas",
+    "Water Sports": "Adidas",
+    "Camping & Hiking": "Adidas",
+    "Golf": "Adidas",
+    "Indoor Sports": "Adidas",
+    "Team Sports": "Adidas",
+    "Tennis & Racquet Sports": "Adidas",
+    "Winter Sports": "Adidas"
+  },
+  {
+    "Cycling": "Nike",
+    "Exercise Equipment": "Nike",
+    "Water Sports": "Nike",
+    "Camping & Hiking": "Nike",
+    "Golf": "Nike",
+    "Indoor Sports": "Nike",
+    "Team Sports": "Nike",
+    "Tennis & Racquet Sports": "Nike",
+    "Winter Sports": "Nike"
+  },
+  {
+    "Cycling": "Xiaomi",
+    "Exercise Equipment": "Xiaomi",
+    "Water Sports": "Xiaomi",
+    "Camping & Hiking": "Xiaomi",
+    "Golf": "Xiaomi",
+    "Indoor Sports": "Xiaomi",
+    "Team Sports": "Xiaomi",
+    "Tennis & Racquet Sports": "Xiaomi",
+    "Winter Sports": "Xiaomi"
+  },
+  {
+    "Cycling": "Speedo",
+    "Exercise Equipment": "Speedo",
+    "Water Sports": "Speedo",
+    "Camping & Hiking": "Speedo",
+    "Golf": "Speedo",
+    "Indoor Sports": "Speedo",
+    "Team Sports": "Speedo",
+    "Tennis & Racquet Sports": "Speedo",
+    "Winter Sports": "Speedo"
+  },
+  {
+    "Cycling": "Puma",
+    "Exercise Equipment": "Puma",
+    "Water Sports": "Puma",
+    "Camping & Hiking": "Puma",
+    "Golf": "Puma",
+    "Indoor Sports": "Puma",
+    "Team Sports": "Puma",
+    "Tennis & Racquet Sports": "Puma",
+    "Winter Sports": "Puma"
+  },
+  {
+    "Cycling": "Other",
+    "Exercise Equipment": "Other",
+    "Water Sports": "Other",
+    "Camping & Hiking": "Other",
+    "Golf": "Other",
+    "Indoor Sports": "Other",
+    "Team Sports": "Other",
+    "Tennis & Racquet Sports": "Other",
+    "Winter Sports": "Other"
+  },
+
+  {
+  "Shoes/Footwear": "Nike",
+  "Clothing": "Nike",
+  "Handbags, Bags & Wallets": "Nike",
+  "Men Accessories": "Nike",
+  "Women Accessories": "Nike",
+  "Luggage": "Nike",
+  "Fragrances": "Nike",
+  "Wedding Apparel": "Nike",
+  "Costumes & Uniforms": "Nike",
+  "Vintage & Highend Clothing": "Nike"
+  },
+    
+  {
+  "Shoes/Footwear": "Adidas",
+  "Clothing": "Adidas",
+  "Handbags, Bags & Wallets": "Adidas",
+  "Men Accessories": "Adidas",
+  "Women Accessories": "Adidas",
+  "Luggage": "Adidas",
+  "Fragrances": "Adidas",
+  "Wedding Apparel": "Adidas",
+  "Costumes & Uniforms": "Adidas",
+  "Vintage & Highend Clothing": "Adidas"
+  },  
+  {
+  "Shoes/Footwear": "Puma",
+  "Clothing": "Puma",
+  "Handbags, Bags & Wallets": "Puma",
+  "Men Accessories": "Puma",
+  "Women Accessories": "Puma",
+  "Luggage": "Puma",
+  "Fragrances": "Puma",
+  "Wedding Apparel": "Puma",
+  "Costumes & Uniforms": "Puma",
+  "Vintage & Highend Clothing": "Puma"
+  },
+      
+  {
+  "Shoes/Footwear": "Casio",
+  "Clothing": "Casio",
+  "Handbags, Bags & Wallets": "Casio",
+  "Men Accessories": "Casio",
+  "Women Accessories": "Casio",
+  "Luggage": "Casio",
+  "Fragrances": "Casio",
+  "Wedding Apparel": "Casio",
+  "Costumes & Uniforms": "Casio",
+  "Vintage & Highend Clothing": "Casio"
+  },
+{
+  "Shoes/Footwear": "Loreal",
+  "Clothing": "Loreal",
+  "Handbags, Bags & Wallets": "Loreal",
+  "Men Accessories": "Loreal",
+  "Women Accessories": "Loreal",
+  "Luggage": "Loreal",
+  "Fragrances": "Loreal",
+  "Wedding Apparel": "Loreal",
+  "Costumes & Uniforms": "Loreal",
+  "Vintage & Highend Clothing": "Loreal"
+  },
+
+  {
+  "Digital Cameras": "Canon",
+  "Lenses, Filters & Lighting": "Canon",
+  "Professional Equipment": "Canon",
+  "Camera Accessories": "Canon",
+  "Tripods & Stands": "Canon",
+  "Camcorders": "Canon",
+  "Film Cameras": "Canon",
+  "Binoculars/Telescopes": "Canon"
+},
+{
+  "Digital Cameras": "Sony",
+  "Lenses, Filters & Lighting": "Sony",
+  "Professional Equipment": "Sony",
+  "Camera Accessories": "Sony",
+  "Tripods & Stands": "Sony",
+  "Camcorders": "Sony",
+  "Film Cameras": "Sony",
+  "Binoculars/Telescopes": "Sony"
+},
+{
+  "Digital Cameras": "GoPro",
+  "Lenses, Filters & Lighting": "GoPro",
+  "Professional Equipment": "GoPro",
+  "Camera Accessories": "GoPro",
+  "Tripods & Stands": "GoPro",
+  "Camcorders": "GoPro",
+  "Film Cameras": "GoPro",
+  "Binoculars/Telescopes": "GoPro"
+},
+{
+  "Digital Cameras": "Nikon",
+  "Lenses, Filters & Lighting": "Nikon",
+  "Professional Equipment": "Nikon",
+  "Camera Accessories": "Nikon",
+  "Tripods & Stands": "Nikon",
+  "Camcorders": "Nikon",
+  "Film Cameras": "Nikon",
+  "Binoculars/Telescopes": "Nikon"
+},
+{
+  "Digital Cameras": "Other",
+  "Lenses, Filters & Lighting": "Other",
+  "Professional Equipment": "Other",
+  "Camera Accessories": "Other",
+  "Tripods & Stands": "Other",
+  "Camcorders": "Other",
+  "Film Cameras": "Other",
+  "Binoculars/Telescopes": "Other"
+},
+{
+"Watches": "Casio",
+"Women Jewelry": "Casio",
+"Men Jewelry": "Casio",
+"Loose Diamonds & Gems": "Casio"
+},
+{
+  "Watches": "Other",
+  "Women Jewelry": "Other",
+  "Men Jewelry": "Other",
+  "Loose Diamonds & Gems": "Other"
+},
+{
+"Guitars" : "Casio",
+"Percussion" : "Casio",
+"String Instruments" : "Casio",
+"Wind Instruments" : "Casio"
+},
+{
+  "Guitars" : "Ibanez",
+  "Percussion" : "Ibanez",
+  "String Instruments" : "Ibanez",
+  "Wind Instruments" : "Ibanez"
+},
+{
+  "Guitars" : "Other",
+  "Percussion" : "Other",
+  "String Instruments" : "Other",
+  "Wind Instruments" : "Other"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+},
+{
+"Strollers & Car Seats": "baby joy",
+"Nursery Furniture & Accessories": "baby joy",
+"Baby Gear": "baby joy",
+"Baby Toys": "baby joy",
+"Feeding": "baby joy",
+"Safety & Health": "baby joy",
+"Bath & Diapers": "baby joy"
+}
+]

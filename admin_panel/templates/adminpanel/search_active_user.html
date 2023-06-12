@@ -1,0 +1,292 @@
+{% extends 'adminpanel/base.html' %}
+{% load pagination_tags %}
+
+{% block title %}
+Search Active User
+{% endblock %}
+
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+
+                                <form action="" method="get" class="row gy-2 gx-3 align-items-center">
+                                    <h4 class="card-title m-0 pe-4">Search Users</h4>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="first name" name="first_name" id="1st" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="last name" name="last_name" id="2nd" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="username" name="username" id="3rd" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <select class="form-select form-select-sm bg-light border-light rounded"
+                                            id="4th" name="gender">
+                                            <option value="" selected>Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive" id="container-div">
+                                {% if users %}
+                                <table class="table align-middle table-nowrap mb-0" id="all-data-row">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">First Name</th>
+                                            <th class="align-middle">Last Name</th>
+                                            <th class="align-middle">Username</th>
+                                            <th class="align-middle">Email</th>
+                                            <th class="align-middle">Gender</th>
+                                            <th class="align-middle">Country</th>
+
+                                            <th class="align-middle">Is Active</th>
+                                            <th class="align-middle">Block</th>
+
+                                            <th class="align-middle">Delete</th>
+                                            <th class="align-middle">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for u in users %}
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td>
+                                                {{ forloop.counter0|add:users.start_index }}
+                                            </td>
+                                            <td>{{u.user.first_name}}</td>
+                                            <td>{{u.user.last_name}}</td>
+                                            <td>{{u.user.username}}</td>
+                                            <td>{{u.user.email}}</td>
+                                            <td> {{u.gender}}</td>
+
+                                            {% if u.userplaceslived_profile.all %}
+                                            {% for country in u.userplaceslived_profile.all|slice:":1" %}
+                                            <td> {{country.country}}</td>
+                                            {% endfor %}
+                                            {% else %}
+                                            <td>None</td>
+                                            {% endif %}
+
+                                            <td><i class="fa fa-check-circle mx-3 text-success"></i></td>
+
+                                            <td>
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="input-block-unblock-btn btn btn-warning btn-sm btn-rounded waves-effect waves-light btn-block input_cstm"
+                                                    id={{u.id}} data-sid={{u.id}}>Block</button>
+                                            </td>
+
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                                    data-sid={{u.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <a href="{{front_end_server}}/{{u.user.username}}" type="button"
+                                                    target="_blank"
+                                                    class="btn btn-primary btn-rounded waves-effect waves-light">
+                                                    <i class="fas fa-eye "></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <br><br><br><br>
+                                <h4 class="text-center">No Result Found</h4>
+                                <br><br>
+                                {% endif %}
+                            </div>
+                            <!-- end table-responsive -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul
+                        class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if users.has_previous %}
+                        <li class="page-item ">
+                            <a href="?{% url_replace request 'page' users.previous_page_number %}" class="page-link"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"><i
+                                    class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{users.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+
+                        <li class="page-item">
+                            {{users.paginator.num_pages}}
+                        </li>
+
+                        {% if users.has_next %}
+                        <li class="page-item">
+                            <a href="?{% url_replace request 'page' users.next_page_number %}"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"
+                                class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <a type="button" href="{% url 'admin_panel_view_active_user' %}"
+                class="btn btn-success btn-sm text-center">back</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let firstname = document.getElementById('1st');
+    let lastname = document.getElementById('2nd');
+    let username = document.getElementById('3rd');
+    let gender = document.getElementById('4th');
+
+    firstname.addEventListener('input', check)
+    lastname.addEventListener('input', check)
+    username.addEventListener('input', check)
+    gender.addEventListener('input', check)
+
+    function check() {
+        if (firstname.value == '' && lastname.value == '' && username.value == '' && gender.value == '') {
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { aid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_user' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("User deleted successfuly!");
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+                }
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0) {
+                    let my_data_div = document.getElementById('all-data-row')
+                    my_data_div.remove()
+
+                    let container_div = document.getElementById('container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Active User Yet</h4>`
+                    container_div.innerHTML = new_content
+                }
+
+            },
+
+        })
+    });
+</script>
+<script rel="javascript" type="text/javascript">
+    let all_btns = document.querySelectorAll('.input-block-unblock-btn')
+    all_btns.forEach(itm => {
+        itm.addEventListener('click', () => {
+            console.log(itm.getAttribute('data-sid'))
+            output = "";
+            let id = itm.getAttribute('data-sid')
+            let csrf = $("input[name=csrfmiddlewaretoken]").val();
+            mydata = { aid: id, csrfmiddlewaretoken: csrf }
+            mythis = itm;
+            $.ajax({
+                url: "{% url 'admin_panel_block_user' %}",
+                method: "POST",
+                data: mydata,
+                success: function (data) {
+                    alert("User Block successfuly!");
+                    if (data.status == 1) {
+                        let my_element = $(mythis).closest("tr")
+                        my_element.remove()
+                    }
+
+                    let myTbody = document.getElementById('table-body')
+                    if (myTbody.childElementCount == 0) {
+                        let my_data_div = document.getElementById('all-data-row')
+                        my_data_div.remove()
+
+                        let container_div = document.getElementById('container-div')
+                        let new_content = `<br><br><br><br><h4 class="text-center">No Active User Yet</h4>`
+                        container_div.innerHTML = new_content
+                    }
+
+                },
+
+            })
+        })
+    })
+
+</script>
+{% endblock %}

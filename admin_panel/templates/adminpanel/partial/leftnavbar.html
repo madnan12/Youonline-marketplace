@@ -1,0 +1,244 @@
+<style>
+    .sidebar-enable.vertical-collpsed .mm-show{
+        overflow: initial !important;
+    }
+    .mm-show{
+        height: 100%;
+        overflow: hidden auto;
+    }
+    .sidebar-enable.vertical-collpsed #sidebar-menu{
+        position: sticky;
+        top: -60px;
+    }
+
+    .mm-show::-webkit-scrollbar{
+    background-color: transparent;
+    width:6px;
+    }
+    .mm-show::-webkit-scrollbar-thumb{
+        background-color:#6a7187;
+        border-radius:12px;
+    }
+    
+    
+
+</style>
+<div class="vertical-menu ">
+
+    <div class="mm-show">
+
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title" key="t-menu">Menu</li>
+                <li>
+                    <a href="{% url 'admin_panel_home' %}" class="waves-effect">
+                        <i class="bx bx-home-circle"></i>
+                        <span key="t-dashboards">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-user"></i>
+
+                        <span key="t-ecommerce">User</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_users'%}" key="t-level-1-2">Total User</a></li>
+                        <li><a href="{% url 'admin_panel_view_active_user'%}" key="t-level-1-5"> Active user</a></li>
+                        <li><a href="{% url 'admin_panel_view_inactive_user'%}" key="t-level-1-6">Inactive User</a>
+                        </li>
+                        <li><a href="{% url 'admin_panel_view_user_post'%}" key="t-level-1-3">User Posts</a></li>
+                       
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-users"></i>
+                        <span key="t-ecommerce">Group</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_groups'%}" key="t-level-2-2">Total Groups</a></li>
+                        <li><a href="{% url 'admin_panel_view_promote_group'%}" key="t-level-2-3"> Promoted Group</a></li>
+                        <li><a href="{% url 'admin_panel_view_unpromote_group'%}" key="t-level-2-4">Unpromoted
+                                Groups</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-file"></i>
+                        <span key="t-ecommerce">Page</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_pages'%}" key="t-level-3-2">Total Pages</a></li>
+                        <li><a href="{% url 'admin_panel_view_promote_page'%}" key="t-level-3-3">Promoted Pages</a></li>
+                        <li><a href="{% url 'admin_panel_view_unpromote_page'%}" key="t-level-3-4">Unpromoted
+                                Pages</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-home"></i>
+
+                        <span key="t-ecommerce">Property</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_properties'%}" key="t-level-4-2">Total Properties</a>
+                        </li>
+                        <li><a href="{% url 'admin_panel_view_pending_properties'%}" key="t-level-4-3">Pending
+                                Properties</a></li>
+                        <li><a href="{% url 'admin_panel_view_promote_properties'%}" key="t-level-4-2">Promoted Properties</a>
+                                </li>
+                        <li><a href="{% url 'admin_panel_view_unpromote_properties'%}" key="t-level-4-2">Unpromoted Properties</a>
+                                </li>
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-bus"></i>
+                        <span key="t-ecommerce">Automotive</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_automotives'%}" key="t-level-5-2">Total
+                                Automotives</a></li>
+                        <li><a href="{% url 'admin_panel_view_pending_automotives'%}" key="t-level-5-3">Pending
+                                Automotives</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_promoted_automotives'%}" key="t-level-4-2">Promoted Automotives</a>
+                                </li>
+                        <li><a href="{% url 'admin_panel_view_unpromoted_automotives'%}" key="t-level-4-2">Unpromoted Automotives</a>
+                                </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-cart-plus"></i>
+                        <span key="t-ecommerce">Classified</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_classified'%}" key="t-level-6-2">Total Classifieds</a>
+                        </li>
+                        <li><a href="{% url 'admin_panel_view_pending_classified'%}" key="t-level-6-3">Pending
+                                Classifieds</a></li>
+                        <li><a href="{% url 'admin_panel_view_promote_classified'%}" key="t-level-4-2">Promoted Classifieds</a>
+                                </li>
+                        <li><a href="{% url 'admin_panel_view_unpromote_classified'%}" key="t-level-4-2">Unpromoted Classifieds</a>
+                                </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-video"></i>
+                        <span key="t-ecommerce">Video Module</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_video_channel' %}" key="t-level-7-2">Total Channel</a></li>
+                        <li><a href="{% url 'admin_panel_view_video'%}" key="t-level-7-3">Total Video</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-address-card"></i>
+                        <span key="t-ecommerce">Job</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_job' %}" key="t-level-7-2">Total Job</a></li>
+                        <li><a href="{% url 'admin_panel_view_job_profile' %}" key="t-level-7-2">Job Profile</a></li>
+                        
+                  
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-blog"></i>
+                        <span key="t-ecommerce">Blog</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_blog' %}" key="t-level-7-2">Total Blog</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_promote_blog' %}" key="t-level-7-2">Promoted Blog</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_unpromote_blog' %}" key="t-level-7-2">Unpromoted Blog</a></li>
+                   
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow waves-effect">
+                        <i class="fa fa-business-time"></i>
+                        <span key="t-ecommerce">Business Directory</span>
+                    </a>
+                    <ul class="sub-menu custom-close-sidebar increase-size" aria-expanded="true">
+                        <li><a href="{% url 'admin_panel_view_business_directory' %}" key="t-level-7-2">Total Business Directory</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_pending_business_directory' %}" key="t-level-7-2">Pending Business Directory</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_promote_business_directory' %}" key="t-level-7-2">Promoted Business Directory</a></li>
+
+                        <li><a href="{% url 'admin_panel_view_unpromote_business_directory' %}" key="t-level-7-2">Unpromoted Business Directory</a></li>
+                   
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+
+  body[data-sidebar="dark"].vertical-collpsed{
+    min-height:100vh !important;
+  }
+  .postion-sticky-rickshaw{
+    position: sticky;
+    top: 70px;
+  }
+</style>
+
+<script>
+    const sidebar_li = document.querySelectorAll('.custom-close-sidebar li');
+    const sidebar = document.querySelector('.custom-rickkshaw');
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+    sidebar_li.forEach(li=>{
+        if(li.classList.contains('mm-active')){
+            sidebar.classList.add('vertical-collpsed')
+        }
+    })
+    if(location.pathname.includes('admin_panel_search_user')){
+        sidebar.classList.add('vertical-collpsed')
+    }
+
+    let sticky = document.querySelector('.simplebar-content');
+    sticky.classList.add('postion-sticky-rickshaw')
+});
+</script>
+
+<script>
+    let sidebar_lis =  document.querySelectorAll('.metismenu>li');
+    if(window.innerHeight <= 700){
+      let ul = sidebar_lis[sidebar_lis.length -1].querySelector('ul.sub-menu');
+      ul.classList.add('bottom-60')
+    }
+    if( window.innerHeight <= 620){
+      let ul = sidebar_lis[sidebar_lis.length -2].querySelector('ul.sub-menu');
+      ul.classList.add('bottom-60')
+    }
+  </script>

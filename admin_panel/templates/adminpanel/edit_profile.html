@@ -1,0 +1,133 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+
+{% block title %}
+Edit Profile
+{% endblock %}
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+<br><br>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="container emp-profile">
+                <div class="row">
+                    <h4 class="card-title">Edit Profile</h4>
+
+                    <br><br>
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">First Name*</label>
+                            <div class="col-md-10">
+                                {{form1.first_name}}
+                                <span class="text-danger" id="first_name2"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Middle Name</label>
+                            <div class="col-md-10">
+                                {{form1.middle_name}}
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Last Name*</label>
+                            <div class="col-md-10">
+                                {{form1.last_name}}
+                                <span class="text-danger" id="last_name2"></span>
+
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Mobile Number</label>
+                            <div class="col-md-10">
+                                {{form1.mobile_number}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Gender*</label>
+                            <div class="col-md-10">
+                                {{form2.gender}}
+                                <span class="text-danger" id="gender2"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Bio</label>
+                            <div class="col-md-10">
+                                {{form2.bio}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Street Adress</label>
+                            <div class="col-md-10">
+                                {{form2.street_adress}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">DOB</label>
+                            <div class="col-md-10">
+                                {{form2.birth_date}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Current City</label>
+                            <div class="col-md-10">
+                                {{form2.current_city}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Home Town</label>
+                            <div class="col-md-10">
+                                {{form2.home_town}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Religious View</label>
+                            <div class="col-md-10">
+                                {{form2.religious_view}}
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Political View</label>
+                            <div class="col-md-10">
+                                {{form2.political_view}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Birth Place</label>
+                            <div class="col-md-10">
+                                {{form2.birth_place}}
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Language</label>
+                            <div class="col-md-10">
+                                {{form2.language}}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success btn-lg" style="float: right;">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+
+
+
+{% endblock %}

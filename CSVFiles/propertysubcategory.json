@@ -1,0 +1,28 @@
+[
+
+{
+  "Agricultural Land": "Rainfed agriculture ",
+	"Industrial": "Patents for inventions",
+	"Commercial Plot": "Office buildings",
+	"Residential": "Single-detached house"
+},
+{
+  "Agricultural Land": "Irrigated agriculture",
+	"Industrial":"Trademarks", 
+	"Commercial Plot": "Retail space",
+	"Residential": "Row house"
+},
+{
+  "Agricultural Land": "Grassland Forestry",
+	"Industrial": "Industrial designs",
+	"Commercial Plot": "Warehouses",
+	"Residential": "Apartment"
+},
+{
+  "Agricultural Land": "Recreation",
+	"Industrial": "Geographical indications",
+	"Commercial Plot": "",
+	"Residential": "Movable dwelling"
+}
+
+]

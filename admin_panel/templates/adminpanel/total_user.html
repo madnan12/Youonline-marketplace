@@ -1,0 +1,301 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+   Total User 
+{% endblock %}
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid" id="container-div">
+            {% if profiles %}
+            <div class="row" id="all-data-row" >
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                              
+                                <form method="get" class="row gy-2 gx-3 align-items-center"
+                                    action="{% url 'admin_panel_search_user' %}">
+                                    <h4 class="card-title m-0 pe-4">All Users</h4>
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="first name"
+                                            name="first_name" id="1st" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="last name"
+                                            name="last_name" id="2nd" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="username"
+                                            name="username" id="3rd" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="email"
+                                            name="email" id="5th" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <select class="form-select form-select-sm bg-light border-light rounded" id="4th" name="gender">
+                                            <option value="" selected>Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+
+
+                                        </select>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive">
+
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">First Name</th>
+                                            <th class="align-middle">Last Name</th>
+                                            <th class="align-middle">Username</th>
+                                            <th class="align-middle">Email</th>
+                                            <th class="align-middle">Gender</th>
+                                            <th class="align-middle">Country</th>
+                                            <th class="align-middle">Block</th>
+                                            <th class="align-middle">Delete</th>
+                                            <th class="align-middle">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for p in profiles %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                {{ forloop.counter0|add:profiles.start_index }}
+                                            </td>
+                                            <td><a href="{% url 'admin_panel_view_single_user_all_post' p.id %}">{{p.user.first_name}}</a>
+                                            </td>
+
+                                            <td><a href="{% url 'admin_panel_view_single_user_all_post' p.id %}">{{p.user.last_name}}</a>
+                                            </td>
+
+                                            <td><a href="{% url 'admin_panel_view_single_user_all_post' p.id %}">{{p.user.username}}</a>
+                                            </td>
+                                            
+                                            <td>{{p.user.email}}</td>
+                                        
+                                            <td> {{p.gender}}</td>
+                                            {% if p.userplaceslived_profile.all %}
+                                            {% for country in p.userplaceslived_profile.all %}
+                                            {% if forloop.last %}
+                                            <td> {{country.country}}</td>
+                                            {% endif %}
+                                            {% endfor %}
+                                            {% else %}
+                                            <td>None</td>
+                                            {% endif %}
+                                            
+                                           {% if not p.remove_at %}
+                                            <td>
+                                                {% csrf_token %}
+                                                <input type="button" class="input-block-unblock-btn btn btn-warning btn-sm btn-rounded waves-effect waves-light btn-block input_cstm" id={{p.id}}
+                                                data-sid={{p.id}} value="{% if p.is_blocked %}Unblock{% else %}Block{% endif %}"  />
+                                            </td>
+                                            {% else %}
+                                            <td>
+                                            <button type="button" class="input-block-unblock-btn btn btn-warning btn-sm btn-rounded waves-effect waves-light btn-block input_cstm" disabled>Block</button>
+                                            </td>
+                                            {% endif %}
+
+                                            {% if not p.remove_at %}
+                                            <td>
+
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                                    data-sid={{p.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            {% else %}
+                                            <td>
+                                            <button type="button"
+                                            class="btn btn-danger btn-rounded waves-effect waves-light btn-delete" disabled>                                                    <i class="bx bx-trash"></i>
+                                            </button>
+                                            </td>
+                                            {% endif %}
+
+                                            <td>
+                                                <a href="{{front_end_server}}/{{p.user.username}}" type="button" target="_blank"
+                                                    class="btn btn-primary btn-rounded waves-effect waves-light">
+                                                    <i class="fas fa-eye "></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+            {% if profiles %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if profiles.has_previous %}
+                        <li class="page-item ">
+                            <a href="?page={{profiles.previous_page_number}}" class="page-link"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"><i
+                                    class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left "></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{profiles.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+
+                        <li class="page-item">
+                            {{profiles.paginator.num_pages}}
+                        </li>
+
+                        {% if profiles.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{profiles.next_page_number}}" onMouseOver="this.style.color='#0F0'"
+                                onMouseOut="this.style.color='#00F'" class="page-link"><i
+                                    class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}                    
+                            <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <br><br><br><br>
+            <h4 class="text-center">No User Yet</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let firstname = document.getElementById('1st');
+    let lastname = document.getElementById('2nd');
+    let username = document.getElementById('3rd');
+    let gender = document.getElementById('4th');
+    let email = document.getElementById('5th');
+
+    firstname.addEventListener('input', check)
+    lastname.addEventListener('input', check)
+    username.addEventListener('input', check)
+    gender.addEventListener('input', check)
+    email.addEventListener('input', check)
+
+    function check() {
+        if (firstname.value == '' && lastname.value == '' && username.value == '' 
+                    && gender.value == '' && email.value == '') {       
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { aid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_user' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("User deleted successfuly!");
+
+                $(mythis).attr('disabled' , true)
+
+                block_btn = $(`input.btn#${id}`)
+                $(block_btn).attr('disabled' , true)
+            
+            },
+
+        })
+    });
+</script>
+
+<script rel="javascript" type="text/javascript">
+    let all_btns  = document.querySelectorAll('.input-block-unblock-btn')
+    all_btns.forEach(itm =>{
+        itm.addEventListener('click' , ()=>{
+            console.log(itm.getAttribute('data-sid'))
+            output = "";
+            let id = itm.getAttribute('data-sid')
+            let csrf = $("input[name=csrfmiddlewaretoken]").val();
+            mydata = { aid: id, csrfmiddlewaretoken: csrf }
+            mythis = itm;
+            $.ajax({
+                url: "{% url 'admin_panel_block_user' %}",
+                method: "POST",
+                data: mydata,
+                success: function (data) {
+                    if (data.status == 1) {
+                        console.log(data);
+                    }
+                    
+                    if ( mythis.value === "Block" ){
+                        mythis.value = "Unblock";
+                        alert("User block successfuly!");
+                    }
+                    else{
+                        mythis.value = "Block";
+                        alert("User unblock successfuly!");
+                    }
+                    
+
+                },
+
+            })
+        })
+    })
+
+</script>
+
+{% endblock %}

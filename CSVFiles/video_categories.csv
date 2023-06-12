@@ -1,0 +1,81 @@
+id,Parent Category,Category,inserted_dt
+1,0,Film & Animation,2020-12-02 12:05:44
+2,0,Autos & Vehicles,2021-01-05 14:49:13
+3,0,Music,2021-01-05 14:49:28
+4,0,Pets & Animals,2021-01-05 14:49:43
+5,0,Sports,2021-01-05 14:50:20
+6,0,Travel & Events,2021-01-05 14:50:33
+7,0,Gaming,2021-01-05 14:50:45
+8,0,People & Blogs,2021-01-05 14:50:54
+9,0,Comedy,2021-01-05 14:51:06
+10,0,Entertainment,2021-01-05 14:51:14
+11,0,News & Politics,2021-01-05 14:51:22
+12,0,Howto & Style,2021-01-05 14:51:32
+13,0,Education,2021-01-05 14:51:40
+14,0,Science & Technology,2021-01-05 14:51:46
+15,0,Nonprofits & Activism,2021-01-05 14:51:54
+16,Film & Animation,Full movie,2021-01-05 14:53:14
+17,Film & Animation,Movie trailers,2021-01-05 14:53:30
+18,Film & Animation,Movie scenes,2021-01-05 14:53:53
+19,Autos & Vehicles,Cars,2021-01-05 14:54:35
+20,Autos & Vehicles,Bikes automobiles technology,2021-01-05 14:54:55
+21,Autos & Vehicles,Tips solutions,2021-01-05 14:55:29
+22,Autos & Vehicles,New launches,2021-01-05 14:55:47
+23,Music,Music,2021-01-05 14:56:43
+24,Music,Songs,2021-01-05 14:56:53
+25,Pets & Animals,Funny moves,2021-01-05 14:58:38
+26,Sports,Sport equipment,2021-01-05 14:59:11
+27,Sports,Accessories,2021-01-05 14:59:24
+28,Sports,Tips,2021-01-05 14:59:37
+29,Sports,Amazing moments,2021-01-05 15:09:42
+30,Sports,Statistics,2021-01-05 15:09:59
+31,Travel & Events,Traveling tips,2021-01-05 15:10:22
+32,Travel & Events,Travel places,2021-01-05 15:10:38
+33,Travel & Events,Holiday places list,2021-01-05 15:10:54
+34,Travel & Events,Event videos,2021-01-05 15:11:14
+35,Gaming,New Game,2021-01-05 15:11:48
+36,Gaming,Game tips,2021-01-05 15:12:10
+37,People & Blogs,Videos for people,2021-01-05 15:15:39
+38,People & Blogs,Life style,2021-01-05 15:15:54
+39,People & Blogs,Celebrity talks,2021-01-05 15:16:09
+40,Comedy,Stand up speech,2021-01-05 15:16:37
+41,Comedy,Short story,2021-01-05 15:16:54
+42,Comedy,Funny videos,2021-01-05 15:17:23
+43,Entertainment,Dance,2021-01-05 15:17:45
+44,Entertainment,Drama,2021-01-05 15:17:53
+45,Entertainment,Music,2021-01-05 15:18:03
+46,Entertainment,Movies,2021-01-05 15:18:11
+47,News & Politics,News and Politics,2021-01-05 15:18:34
+48,News & Politics,Short news,2021-01-05 15:18:49
+49,News & Politics,Politics related things,2021-01-05 15:20:41
+50,News & Politics,Media,2021-01-05 15:21:27
+51,Howto & Style,Style or fashion,2021-01-05 15:21:47
+52,Education,Tutorial,2021-01-05 15:22:14
+53,Education,Knowledge guide,2021-01-05 15:22:30
+54,Education,Learning,2021-01-05 15:22:47
+55,Education,Academic classes,2021-01-05 15:23:02
+56,Science & Technology,Innovation,2021-01-05 15:23:24
+57,Science & Technology,Facts,2021-01-05 15:23:37
+58,Science & Technology,Benefits,2021-01-05 15:23:49
+59,Science & Technology,Mobile technology,2021-01-05 15:24:11
+60,Science & Technology,Computer Technology,2021-01-05 15:24:23
+61,Science & Technology,Future Technology,2021-01-05 15:24:48
+62,Nonprofits & Activism,The policy,2021-01-05 15:25:49
+63,Nonprofits & Activism,Campaigning,2021-01-05 15:26:08
+64,0,Pets & Animals,2021-01-10 09:26:18
+65,0,Short Movies,2021-01-10 09:26:31
+66,0,Videoblogging,2021-01-10 09:26:42
+67,0,Movies,2021-01-10 09:26:52
+68,0,Anime/Animation,2021-01-10 09:27:06
+69,0,Action/Adventure,2021-01-10 09:27:18
+70,0,Classics,2021-01-10 09:27:28
+71,0,Documentary,2021-01-10 09:27:39
+72,0,Drama,2021-01-10 09:27:47
+73,0,Family,2021-01-10 09:27:55
+74,0,Foreign,2021-01-10 09:28:03
+75,0,Horror,2021-01-10 09:28:10
+76,0,Sci-Fi/Fantasy,2021-01-10 09:28:18
+77,0,Thriller,2021-01-10 09:28:26
+78,0,Shorts,2021-01-10 09:28:33
+79,0,Shows,2021-01-10 09:28:40
+80,0,Trailers,2021-01-10 09:28:48

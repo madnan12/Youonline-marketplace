@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <style>
+.select-circle{
+  border:1px solid #ddd;
+  border-radius:50%;
+  height:60px;
+  width:60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  </style>
+  <body>
+      
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+    </button>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+
+              <h4 class="card-title">Textual inputs</h4>
+              <p class="card-title-desc">Here are examples of <code>.form-control</code> applied
+                  to
+                  each
+                  textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
+
+              <div class="mb-3 row">
+                  <label for="example-text-input" class="col-md-2 col-form-label">Text</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="text" value="Artisanal kale"
+                          id="example-text-input">
+                  </div>
+              </div>
+              
+              <div class="mb-3 row">
+                  <label for="example-search-input" class="col-md-2 col-form-label">Search</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="search" value="How do I shoot web"
+                          id="example-search-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="email" value="bootstrap@example.com"
+                          placeholder="Enter Email" id="example-email-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-url-input" class="col-md-2 col-form-label">URL</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="url" value="https://getbootstrap.com"
+                          placeholder="Enter URL" id="example-url-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-tel-input" class="col-md-2 col-form-label">Telephone</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="tel" value="1-(555)-555-5555"
+                          placeholder="Enter Telephone" id="example-tel-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-password-input"
+                      class="col-md-2 col-form-label">Password</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="password" value="hunter2"
+                          placeholder="Enter Password" id="example-password-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-number-input" class="col-md-2 col-form-label">Number</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="number" value="42"
+                          placeholder="Enter Number" id="example-number-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-datetime-local-input" class="col-md-2 col-form-label">Date
+                      and
+                      Time</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="datetime-local"
+                          value="2019-08-19T13:45:00" id="example-datetime-local-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-date-input" class="col-md-2 col-form-label">Date</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="date" value="2019-08-19"
+                          id="example-date-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-month-input" class="col-md-2 col-form-label">Month</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="month" value="2019-08"
+                          id="example-month-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-week-input" class="col-md-2 col-form-label">Week</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="week" value="2019-W33"
+                          id="example-week-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-time-input" class="col-md-2 col-form-label">Time</label>
+                  <div class="col-md-10">
+                      <input class="form-control" type="time" value="13:45:00"
+                          id="example-time-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="example-color-input" class="col-md-2 col-form-label">Color</label>
+                  <div class="col-md-10">
+                      <input class="form-control form-control-color mw-100" type="color"
+                          value="#556ee6" id="example-color-input">
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label class="col-md-2 col-form-label">Select</label>
+                  <div class="col-md-10">
+                      <select class="form-select">
+                          <option>Select</option>
+                          <option>Large select</option>
+                          <option>Small select</option>
+                      </select>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <label for="exampleDataList" class="col-md-2 col-form-label">Datalists</label>
+                  <div class="col-md-10">
+                      <input class="form-control" list="datalistOptions" id="exampleDataList"
+                          placeholder="Type to search...">
+                      <datalist id="datalistOptions">
+                          <option value="San Francisco">
+                          <option value="New York">
+                          <option value="Seattle">
+                          <option value="Los Angeles">
+                          <option value="Chicago">
+                      </datalist>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div> <!-- end col -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+
+{% block title %}
+total video channel
+{% endblock %}
+{% block content %}
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="container emp-profile">
+                <div class="row input_required_validation_p">
+                    <h4 class="card-title">Edit Profile</h4>
+                    <br><br>
+                  <form method="post" onsubmit="validation(e)">
+                      {% csrf_token %}
+
+                      <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">First Name</label>
+                        <div class="col-md-10">
+                            {{form1.first_name}}
+                            <span class="text-danger" id="first_name2"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Middle Name</label>
+                        <div class="col-md-10">
+                            {{form1.middle_name}}
+
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Last Name</label>
+                        <div class="col-md-10">
+                            {{form1.last_name}}
+                            <span class="text-danger" id="last_name2"></span>
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mobile Number</label>
+                        <div class="col-md-10">
+                            {{form1.mobile_number}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Gender</label>
+                        <div class="col-md-10">
+                            {{form2.gender}}
+                            <span class="text-danger" id="gender2"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Bio</label>
+                        <div class="col-md-10">
+                            {{form2.bio}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Street Adress</label>
+                        <div class="col-md-10">
+                            {{form2.street_adress}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">DOB</label>
+                        <div class="col-md-10">
+                           {{form2.birth_date}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Current City</label>
+                        <div class="col-md-10">
+                            {{form2.current_city}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Home Town</label>
+                        <div class="col-md-10">
+                           {{form2.home_town}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Religious View</label>
+                        <div class="col-md-10">
+                            {{form2.religious_view}}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Political View</label>
+                        <div class="col-md-10">
+                           {{form2.political_view}}
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Birth Place</label>
+                        <div class="col-md-10">
+                            {{form2.birth_place}}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Language</label>
+                        <div class="col-md-10">
+                           {{form2.language}}
+                        </div>
+                    </div>
+                    
+                      <button type="submit" class="btn btn-outline-info input_required_validation_submit">Save</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<br><br><br>
+
+<script>
+
+let validation_submit = document.querySelectorAll('.input_required_validation_submit');
+let validation_inp_p = document.querySelectorAll('.input_required_validation_p');
+if (validation_inp_p.length != 0) {
+    validation_inp_p.forEach((form, j) => {
+        form.querySelectorAll('.input_required_validation').forEach((inp, i) => {
+            inp.addEventListener('input', () => {
+                check_all_inps();
+            })
+            check_all_inps()            
+            function check_all_inps() {
+                let all_inps = [];
+                form.querySelectorAll('.input_required_validation').forEach((inp, i) => {
+                    all_inps.push(inp);
+                    let filtered = all_inps.filter(el => el.value.trim() == '');
+                    if (filtered.length > 0) {
+                        validation_submit[j].classList.add('disabled');
+                    }
+                    else {
+                        validation_submit[j].classList.remove('disabled');
+                    }
+                })
+            }
+        })
+    })
+}
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+<head>
+
+    <style>
+        .emp-profile {
+            padding: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+        }
+
+        .profile-img {
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 70%;
+            height: 100%;
+        }
+
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+            margin-top: -20%;
+            width: 70%;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            background: #212529b8;
+        }
+
+        .profile-img .file input {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .profile-head h5 {
+            color: #0062cc;
+        }
+
+        .profile-head h6 {
+            color: #0062cc;
+        }
+
+        .profile-edit-btn {
+            border: none;
+            border-radius: 1.5rem;
+            width: 70%;
+            padding: 2%;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .proile-rating {
+            font-size: 12px;
+            color: #818182;
+            margin-top: 5%;
+        }
+
+        .proile-rating span {
+            color: #495057;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .profile-head .nav-tabs {
+            margin-bottom: 5%;
+        }
+
+        .profile-head .nav-tabs .nav-link {
+            font-weight: 600;
+            border: none;
+        }
+
+        .profile-head .nav-tabs .nav-link.active {
+            border: none;
+            border-bottom: 2px solid #0062cc;
+        }
+
+        .profile-work {
+            padding: 14%;
+            margin-top: -15%;
+        }
+
+        .profile-work p {
+            font-size: 12px;
+            color: #818182;
+            font-weight: 600;
+            margin-top: 10%;
+        }
+
+        .profile-work a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .profile-work ul {
+            list-style: none;
+        }
+
+        .profile-tab label {
+            font-weight: 600;
+        }
+
+        .profile-tab p {
+            font-weight: 600;
+
+        }
+
+
+        .image {
+            width: 150px !important;
+            height: 150px !important;
+            margin: auto;
+            background-color: #6eafd4;
+            border-radius: 100%;
+            position: relative;
+        }
+
+        .inner {
+            background-color: #ddd;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .inputfile {
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+
+        }
+
+        .inputfile+label {
+            font-size: 1.25rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .inputfile+label svg {
+            fill: #fff;
+        }
+    </style>
+</head>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="container emp-profile">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="outer">
+                                <div class="position-relative m-auto" style="width: fit-content;">
+                                    <img src="{{s3_bucket_link}}{{profileimage.picture}}" class="image" alt="">
+                                    <div class="inner">
+                                        <form action="" id="profile_edit">
+                                            <input class="inputfile" type="file" name="profilepic" accept="image/*"
+                                                onchange="UploadImageHandler(event)">
+                                            <label><i class="fa fa-camera"></i></label>
+                                            <button type="submit" hidden>submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head row">
+                                <h5>
+                                    Welcome {{user.username}}
+                                </h5>
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <p class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab"
+                                            aria-controls="home" aria-selected="true">About</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <a type="button" href="{% url 'admin_panel_update_profile' %}"
+                                class="btn btn-rounded btn-sm btn-secondary">
+                                Edit Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-work">
+                                <p>WORK LINK</p>
+                                <i class="fa fa-facebook-square"></i>
+                                <a href="">Facebook</a><br />
+                                <i class="fa fa-instagram"></i>
+                                <a href="">Instagram</a><br />
+                                <i class="fa fa-linkedin"></i>
+                                <a href="">Linkedin</a>
+
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>First Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user.first_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Last Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user.last_name}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Username</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user.username}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user.email}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Gender</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.gender}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date Of Birth</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.birth_date}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Birth Place</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.birth_place}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Bio</label>
+                                        </div>
+                                        <p align="justify">{{profile.bio}}</p>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Experience</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hourly Rate</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>10$/hr</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Total Projects</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>230</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>English Level</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Availability</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>6 months</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Your Bio</label><br />
+                                            <p>Your detail description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal -->
+            
+                <div class="position-fixed align-items-center justify-content-center" id="imagepreviewModalCover"
+                    style="top: 0;left: 0;right: 0;bottom: 0;background-color: #d3d3d3e0;display: none;z-index: 100;">
+                    <div id="imagepreviewModal" style="width: 500px;">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                           
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Profile Image</h5>
+                                </div>
+                                <form action="{% url 'admin_panel_update_profile_picture' %}">
+                                    
+                                <div class="modal-body" id="imagepreviewModalBody">
+
+                                    <img src="" alt="" class="mx-auto"
+                                        style="max-width: 400px;width: auto;max-height: 300px;display: block;height: auto;">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="closeImagePreviewModal()">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                            </div>
+                     
+                        </div>
+                    </div>
+                </div>
+         
+            <!-- endmodal -->
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const UploadImageHandler = (e) => {
+        let file_ = e.target.files[0]
+        let file_url = URL.createObjectURL(file_)
+
+        let md_cover = document.getElementById('imagepreviewModalCover')
+
+        let modal_image = document.querySelector('#imagepreviewModalBody img')
+
+        modal_image.src = file_url
+
+        md_cover.style.display = 'flex'
+
+        console.log(file_url)
+    }
+
+    const closeImagePreviewModal = () => {
+        let md_cover = document.getElementById('imagepreviewModalCover')
+
+        md_cover.style.display = 'none'
+
+
+    }
+
+</script>
+
+
+
+{% endblock %}

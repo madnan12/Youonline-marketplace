@@ -1,0 +1,1591 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="loader_bg">
+  <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+
+
+<br>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+
+
+      <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+      <div class="row">
+        <div class="col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18"></h4>
+
+            <div class="page-title-right">
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+      <div class="row">
+
+        <div class="col-xl-3">
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_users'%}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">Total User</p>
+                        <h4 class="mb-0">{{total_profile}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-user font-size-24"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_active_user'%}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">Total Active User</p>
+                        <h4 class="mb-0">{{total_active_user}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-user font-size-24"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col">
+
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_inactive_user'%}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">Total Inactive User</p>
+                        <h4 class="mb-0">{{total_inactive_user}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-user font-size-24"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_user_post' %}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">
+                          Total User Post
+                        </p>
+                        <h4 class="mb-0">{{total_post}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-file-image font-size-24"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-9">
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <div class="card">
+                <div class="card-body">
+
+                  <div id="user_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+
+        <div class="col-xl-9">
+          <div class="row">
+            <div class="col-xl-12">
+
+              <div class="card">
+                <div class="card-body">
+
+                  <div id="group_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xl-3">
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_groups' %}">
+
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">Total Group</p>
+                        <h4 class="mb-0">{{total_group}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-users font-size-24"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_promote_group'%}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">
+                          Promoted Group
+                        </p>
+
+                        <h4 class="mb-0">{{total_permote_group}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-users font-size-24"></i>
+
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <div class="card mini-stats-wid">
+                <a href="{% url 'admin_panel_view_unpromote_group' %}">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <p class="text-muted fw-medium">
+                          Unpromoted Group
+                        </p>
+
+                        <h4 class="mb-0">{{total_unpermote_group}}</h4>
+                      </div>
+
+                      <div class="flex-shrink-0 align-self-center">
+                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                          <span class="avatar-title rounded-circle bg-success">
+                            <i class="fa fa-users font-size-24"></i>
+
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xl-3">
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_pages' %}">
+
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">Total Page</p>
+                      <h4 class="mb-0">{{total_page}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-file font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promote_page'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Page
+                      </p>
+
+                      <h4 class="mb-0">{{total_permote_page}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-file font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromote_page' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Page
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpermote_page}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-file font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div id="page_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+            <!--end card-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="property_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3">
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_properties'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Property
+                      </p>
+
+                      <h4 class="mb-0">{{total_property}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-home font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_pending_properties'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Pending Property
+                      </p>
+
+                      <h4 class="mb-0">{{pending_property}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-home font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promote_properties'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Property
+                      </p>
+
+                      <h4 class="mb-0">{{total_permote_property}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-home font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromote_properties'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Property
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpermote_property}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-home font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xl-3">
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_automotives' %}">
+
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Automotive
+                      </p>
+
+                      <h4 class="mb-0">{{total_automotive}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-bus font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_pending_automotives' %}">
+
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Pending Automotive
+                      </p>
+
+                      <h4 class="mb-0">{{pending_automotive}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-bus font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promoted_automotives' %}">
+
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Automotive
+                      </p>
+
+                      <h4 class="mb-0">{{total_permote_automotive}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-bus font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromoted_automotives' %}">
+
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Automotive
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpermote_automotive}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-bus font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-9">
+        <div class="row">
+          <div class="col-xl-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="automotive_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="classified_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+            <!--end card-->
+
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="col-xl-3">
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_classified'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Classified
+                      </p>
+
+                      <h4 class="mb-0">{{total_classified}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-cart-plus font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_pending_classified'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Pending Classified
+                      </p>
+
+                      <h4 class="mb-0">{{pending_classified}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-cart-plus font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promote_classified'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Classified
+                      </p>
+
+                      <h4 class="mb-0">{{total_permote_classified}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-cart-plus font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromote_classified'%}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Classified
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpermote_classified}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-cart-plus font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-xl-3">
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_video_channel' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total channel
+                      </p>
+
+                      <h4 class="mb-0">{{total_video_channel}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="bx bx-photo-album font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_video' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Video
+                      </p>
+
+                      <h4 class="mb-0">{{total_video}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-video font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="video_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-xl-9">
+        <div class="row">
+          <div class="col-xl-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="job_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-3">
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_job' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Job
+                      </p>
+                      <h4 class="mb-0">{{total_job}}</h4>
+                    </div>
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-briefcase font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_job_profile' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Job Profile
+                      </p>
+
+                      <h4 class="mb-0">{{total_job_profile}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-address-card font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-xl-3">
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_blog' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Total Blog
+                      </p>
+
+                      <h4 class="mb-0">{{total_blog}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-blog font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promote_blog' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Blog
+                      </p>
+
+                      <h4 class="mb-0">{{total_promoted_blogs}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-blog font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromote_blog' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Blog
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpromoted_blogs}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-blog font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="blog_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+            <!--end card-->
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="business_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3">
+        <div class="row">
+
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_business_directory' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        All Business Directory
+                      </p>
+
+                      <h4 class="mb-0">{{total_business_directory}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-business-time font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_pending_business_directory' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Pending Business Directory
+                      </p>
+
+                      <h4 class="mb-0">{{pending_business_directory}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-business-time font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_promote_business_directory' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Promoted Business Directory
+                      </p>
+
+                      <h4 class="mb-0">{{total_promote_business_directory}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-business-time font-size-24"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <a href="{% url 'admin_panel_view_unpromote_business_directory' %}">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <p class="text-muted fw-medium">
+                        Unpromoted Business Directory
+                      </p>
+
+                      <h4 class="mb-0">{{total_unpromote_business_directory}}</h4>
+                    </div>
+
+                    <div class="flex-shrink-0 align-self-center">
+                      <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                        <span class="avatar-title rounded-circle bg-success">
+                          <i class="fa fa-business-time font-size-24"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+     <div class="col-xl-3">
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <p class="text-muted fw-medium">
+                      Total Message
+                    </p>
+    
+                    <h4 class="mb-0">{{total_chat}}</h4>
+                  </div>
+    
+                  <div class="flex-shrink-0 align-self-center">
+                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                      <span class="avatar-title rounded-circle bg-success">
+                        <i class="fa fa fa-comments font-size-24"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card mini-stats-wid">
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+    
+                    <p class="text-muted fw-medium">
+                      Total Comments
+                    </p>
+    
+                    <h4 class="mb-0">{{total_comment}}</h4>
+                  </div>
+    
+                  <div class="flex-shrink-0 align-self-center">
+                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                      <span class="avatar-title rounded-circle bg-success">
+                        <i class="fa fa-comment-dots font-size-24"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div id="message_chart" class="apex-charts" dir="ltr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+
+      </div>
+  </div>
+</div>
+</div>
+
+<script>
+
+// user chart
+  var options={chart:{height:490,type:"line",zoom:{enabled:!1},toolbar:{show:!1}},
+  colors:["#556ee6","#f46a6a","#34c38f", '#FF69B4'],
+  dataLabels:{enabled:!1},stroke:{width:[3,4,3],curve:"straight",dashArray:[0,8,5]},
+  series:[
+  {name:"Total User",data:[{% for u in user_list %}
+  
+                            {{u.count}},  
+                        
+                            {% endfor %}]},
+
+  {name:"Active User",data:[{% for p in active_user_list %}
+                                      {{p.count}},  
+                                      
+                                      {% endfor %}]},
+
+  {name:"Inactive User",data:[{% for p in inactive_user_list %}
+                                      {{p.count}},  
+                                      
+                                      {% endfor %}]},
+
+  {name:"User Post",data:[{% for i in post_list %}
+  
+                            {{i.count}},  
+                        
+                            {% endfor %}]},
+  ],
+
+  title:{text:"User Graph",align:"left",style:{fontWeight:"500"}},
+  markers:{size:0,hover:{sizeOffset:6}},
+
+  xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+  tooltip:{y:[{title:{formatter:function(e){return e+""}}},{title:{formatter:function(e){return e+""}}},
+  {title:{formatter:function(e){return e}}}]},grid:{borderColor:"#f1f1f1"}};
+  (chart=new ApexCharts(document.querySelector("#user_chart"),options)).render();
+
+// Group Chart
+options = { chart: { height: 350, type: "area", toolbar: { show: !1 } }, 
+dataLabels: { enabled: !1 }, 
+stroke: { curve: "smooth", width: 3 }, 
+series: [
+{ name: "Group", data: [{% for g in group_list %}
+
+                                  {{g.count}},  
+
+                                  {% endfor %}] }, 
+{ name: "Promoted Group", data: [{% for g in promote_group_list %}
+
+                                  {{g.count}},  
+
+                                  {% endfor %}] },
+
+{ name: "Group Post", data: [{% for g in group_post_list %}
+                                  {{g.count}}, 
+                                  {% endfor %}] }, 
+
+], 
+title:{text:"Group Graph",align:"left",style:{fontWeight:"500"}},
+colors: ["#556ee6", "#34c38f", "#f46a6a"], 
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+grid: { borderColor: "#f1f1f1" }}; 
+(chart = new ApexCharts(document.querySelector("#group_chart"), options)).render(); 
+ 
+// Page chart
+var options={chart:{height:350,type:"bar",zoom:{enabled:!1},toolbar:{show:!1}}, 
+ plotOptions: { bar: { horizontal: !1, columnWidth: "15%", endingShape: "rounded" } }, 
+ dataLabels: { enabled: !1 }, stroke: { show: !0, width: 2, colors: ["transparent"] }, 
+ series: [{ name: "Page", data: [{% for p in page_list %}
+                                       {{p.count}},  
+                                       
+                                       {% endfor %}] }, 
+ { name: "Promoted Page", data: [{% for p in promote_page_list %}
+                                       {{p.count}},  
+                                       
+                                       {% endfor %}] }, 
+ { name: "Page Post", data: [{% for g in page_post_list %}
+                                       {{g.count}},  
+                                       
+                                       {% endfor %}] }
+ ], 
+ title:{text:"Page Graph",align:"left",style:{fontWeight:"500"}},
+ colors: ["#34c38f", "#556ee6", "#f46a6a"], 
+ xaxis: { categories: [{% for m in month_list %}'{{m}}',{% endfor %}] }, 
+ grid: { borderColor: "#f1f1f1" }, fill: { opacity: 1 } }; 
+ (chart = new ApexCharts(document.querySelector("#page_chart"), options)).render(); 
+
+// Property chart
+var options={chart:{height:490,type:"line",zoom:{enabled:!1},toolbar:{show:!1}},  
+colors:["#556ee6","#f46a6a","#34c38f", '#FF69B4'],
+dataLabels:{enabled:!1},stroke:{width:[3,4,3],curve:"straight",dashArray:[0,8,5]},
+series:[
+{name:"Property",data:[{% for g in property_list %}
+                                    {{g.count}},  
+                                    
+                                    {% endfor %}]},
+
+{name:"Promoted Property",data:[{% for g in promoted_property_list %}
+                                    {{g.count}},  
+                                    
+                                    {% endfor %}]},
+],
+
+title:{text:"Property Graph",align:"left",style:{fontWeight:"500"}},
+markers:{size:0,hover:{sizeOffset:6}},
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+tooltip:{y:[{title:{formatter:function(e){return e+""}}},{title:{formatter:function(e){return e+""}}},
+{title:{formatter:function(e){return e}}}]},grid:{borderColor:"#f1f1f1"}};
+(chart=new ApexCharts(document.querySelector("#property_chart"),options)).render();
+
+// Automotive chart
+options = { chart: { height: 490, type: "area", toolbar: { show: !1 } }, 
+dataLabels: { enabled: !1 }, 
+stroke: { curve: "smooth", width: 3 }, 
+series: [
+{ name: "Automotive", data: [{% for u in automotive_list %}
+  
+                                  {{u.count}},  
+                              
+                                  {% endfor %}] }, 
+{ name: "Promoted Automotive", data: [{% for p in promote_automotive_list %}
+                                      {{p.count}},  
+                                      
+                                      {% endfor %}] }
+], 
+title:{text:"Automotive Graph",align:"left",style:{fontWeight:"500"}},
+colors: ["#556ee6", "#34c38f"], 
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+grid: { borderColor: "#f1f1f1" }}; 
+(chart = new ApexCharts(document.querySelector("#automotive_chart"), options)).render(); 
+
+// Classified chart
+var options={chart:{height:490,type:"bar",zoom:{enabled:!1},toolbar:{show:!1}}, 
+ plotOptions: { bar: { horizontal: !1, columnWidth: "10%", endingShape: "rounded" } }, 
+ dataLabels: { enabled: !1 }, stroke: { show: !0, width: 2, colors: ["transparent"] }, 
+ series: [
+  { name: "Classified", data: [{% for u in classified_list %}
+    
+                                          {{u.count}},  
+                                      
+                                          {% endfor %}] }, 
+ { name: "Promoted Classified", data: [{% for p in promote_classified_list %}
+                                       {{p.count}},  
+                                       
+                                       {% endfor %}] }, 
+ 
+ ], 
+
+ title:{text:"Classified Graph",align:"left",style:{fontWeight:"500"}},
+ colors: ["#34c38f", "#556ee6", "#f46a6a"], 
+ xaxis: { categories: [{% for m in month_list %}'{{m}}',{% endfor %}] }, 
+ grid: { borderColor: "#f1f1f1" }, fill: { opacity: 1 } }; 
+ (chart = new ApexCharts(document.querySelector("#classified_chart"), options)).render(); 
+
+// Video Module chart
+var options={chart:{height:210,type:"line",zoom:{enabled:!1},toolbar:{show:!1}},
+colors:["#556ee6","#f46a6a"],
+dataLabels:{enabled:!1},stroke:{width:[3,4,3],curve:"straight",dashArray:[0,8,5]},
+series:[
+{name:"Channel",data:[{% for u in channel_list %}
+
+                              {{u.count}},  
+                          
+                              {% endfor %}]},
+
+{name:"Video",data:[{% for p in video_list %}
+                                    {{p.count}},  
+                                    
+                                    {% endfor %}]},
+
+],
+
+title:{text:"Video Graph",align:"left",style:{fontWeight:"500"}},
+markers:{size:0,hover:{sizeOffset:6}},
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+tooltip:{y:[{title:{formatter:function(e){return e+""}}},{title:{formatter:function(e){return e+""}}},
+{title:{formatter:function(e){return e}}}]},grid:{borderColor:"#f1f1f1"}};
+(chart=new ApexCharts(document.querySelector("#video_chart"),options)).render();
+
+// Job Module chart
+options = { chart: { height: 210, type: "area", toolbar: { show: !1 } }, 
+dataLabels: { enabled: !1 }, 
+stroke: { curve: "smooth", width: 3 }, 
+series: [
+{ name: "Job", data: [{% for j in job_list %}
+  
+                          {{j.count}},  
+                      
+                          {% endfor %}] }, 
+{ name: "Job Profile", data: [{% for jp in jobprofile_list %}
+                                      {{jp.count}},  
+                                      
+                                      {% endfor %}] }
+], 
+title:{text:"Job Graph",align:"left",style:{fontWeight:"500"}},
+colors: ["#556ee6", "#34c38f"], 
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+grid: { borderColor: "#f1f1f1" }}; 
+(chart = new ApexCharts(document.querySelector("#job_chart"), options)).render(); 
+ 
+// Blog chart
+var options={chart:{height:350,type:"bar",zoom:{enabled:!1},toolbar:{show:!1}}, 
+ plotOptions: { bar: { horizontal: !1, columnWidth: "10%", endingShape: "rounded" } }, 
+ dataLabels: { enabled: !1 }, stroke: { show: !0, width: 2, colors: ["transparent"] }, 
+ series: [{ name: "Blog", data: [{% for b in blog_list %}
+    
+                                      {{b.count}},  
+                                  
+                                      {% endfor %}] }, 
+ { name: "Promoted Blog", data: [{% for pb in promoted_blog_list %}
+                                       {{pb.count}},  
+                                       
+                                       {% endfor %}] }, 
+
+ ], 
+ title:{text:"Blog Graph",align:"left",style:{fontWeight:"500"}},
+ colors: ["#34c38f", "#556ee6", "#f46a6a"], 
+ xaxis: { categories: [{% for m in month_list %}'{{m}}',{% endfor %}] }, 
+ grid: { borderColor: "#f1f1f1" }, fill: { opacity: 1 } }; 
+ (chart = new ApexCharts(document.querySelector("#blog_chart"), options)).render(); 
+
+// Business Directory chart
+var options={chart:{height:490,type:"line",zoom:{enabled:!1},toolbar:{show:!1}},
+  colors:["#556ee6","#f46a6a","#34c38f", '#FF69B4'],
+  dataLabels:{enabled:!1},stroke:{width:[3,4,3],curve:"straight",dashArray:[0,8,5]},
+  series:[
+  {name:"Business Directory",data:[{% for b in business_directory_list %}
+  
+                                    {{b.count}},  
+                                
+                                    {% endfor %}]},
+
+  {name:"Promoted Business Directory",data:[{% for pb in promoted_business_diretory %}
+                                    {{pb.count}},  
+                                    
+                                    {% endfor %}]},
+  ],
+
+  title:{text:"Business Directory Graph",align:"left",style:{fontWeight:"500"}},
+  markers:{size:0,hover:{sizeOffset:6}},
+  xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+  tooltip:{y:[{title:{formatter:function(e){return e+""}}},{title:{formatter:function(e){return e+""}}},
+  {title:{formatter:function(e){return e}}}]},grid:{borderColor:"#f1f1f1"}};
+  (chart=new ApexCharts(document.querySelector("#business_chart"),options)).render();
+
+// Message Chart
+options = { chart: { height: 210, type: "area", toolbar: { show: !1 } }, 
+dataLabels: { enabled: !1 }, 
+stroke: { curve: "smooth", width: 3 }, 
+series: [
+{ name: "Message", data: [{% for c in chat_list %}
+  
+                          {{c.count}},  
+                      
+                          {% endfor %}] }, 
+], 
+title:{text:"Message Graph",align:"left",style:{fontWeight:"500"}},
+colors: ["#34c38f"], 
+xaxis:{categories:[{% for m in month_list %}'{{m}}',{% endfor %}]},
+grid: { borderColor: "#f1f1f1" }}; 
+(chart = new ApexCharts(document.querySelector("#message_chart"), options)).render(); 
+
+</script>
+
+{% endblock %}

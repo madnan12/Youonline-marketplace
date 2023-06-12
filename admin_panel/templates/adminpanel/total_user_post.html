@@ -1,0 +1,262 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+   Total User Post 
+{% endblock %}
+
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid" id="container-div">
+            {% if user_posts %}
+            <div class="row" id="all-data-row" >
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                            <form action="{% url 'admin_panel_search_user_post' %}" method="get"
+                                class="row gy-2 gx-3 align-items-center">
+                                <h4 class="card-title m-0 pe-4">All User Posts</h4>
+
+                                <div class="col-sm-auto">
+                                    <input type="text" class="form-control form-control-sm bg-light border-light rounded" id="id1"
+                                    name="admin" placeholder="created by" autocomplete="off">
+                                </div>
+
+                                <div class="col-sm-auto">
+                                    <input type="date" class="form-control form-control-sm bg-light border-light rounded" id="id2"
+                                    name="date" autocomplete="off">
+                                </div>
+
+                                <div class="col-auto">
+                                    <input class="form-check-input one-select-input-custom" type="radio" id="id3" name="image" >
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Image
+                                    </label>
+                                </div>
+
+                                <div class="col-auto">
+                                    <input class="form-check-input one-select-input-custom" type="radio" id="id4" name="video" >
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Video
+                                    </label>
+                                </div>
+
+                                <div class="col-auto">
+                                    <input class="form-check-input one-select-input-custom" type="radio" id="id5" name="poll" >
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Poll
+                                    </label>
+                                </div>
+                             
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-success btn-sm" id="btn" hidden >search</button>
+                                </div>
+
+                            </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">Feeling</th>
+                                            <th class="align-middle">Privacy</th>
+                                            <th class="align-middle">Create by</th>
+                                            <th class="align-middle">Created at</th>
+                                            <th class="align-middle">Poll Status</th>
+                                            <th class="align-middle">Delete</th>
+                                            <th class="align-middle">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for p in user_posts %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                             {{ forloop.counter0|add:user_posts.start_index }}
+                                            </td>
+                                            <td>
+                                                <div class="word-clamping">
+                                                   {% if p.feeling%} {{p.feeling}} {% else%}
+                                                None{% endif %}
+                                                </div>
+                                            </td>
+                                            <td>{{p.privacy}}</td>
+                                            <td> {{p.profile.user}}</td>
+                                           
+                                            <td>{{p.created_at}}</td>
+                                            {% if p.poll_post %}
+                                            <td><i class="fa fa-check-circle mx-4 text-success
+                                                "></i></td>
+                                                {% else %}
+                                            <td><i class="fa fa-times-circle mx-4 text-danger"></i></td>
+                                            {% endif %}
+                                      
+                                            <td>
+
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                                    data-sid={{p.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <a href="{{front_end_server}}/{{post}}/{{p.id}}" type="button" target="_blank"
+                                                    class="btn btn-primary btn-rounded waves-effect waves-light">
+                                                    <i class="fas fa-eye "></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %} 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end table-responsive -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+            {% if user_posts %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if user_posts.has_previous %}
+                        <li class="page-item ">
+                            <a href="?page={{user_posts.previous_page_number}}" class="page-link"  onMouseOver="this.style.color='#0F0'"  onMouseOut="this.style.color='#00F'"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+
+                        <li class="page-item" >
+                            {{user_posts.number}}
+                        </li>
+                    
+                        <li class="page-item">
+                            <span class="mx-2"> of </span> 
+                        </li>
+                        
+              
+                        <li class="page-item">
+                           {{user_posts.paginator.num_pages}}
+                        </li>
+       
+                        {% if user_posts.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{user_posts.next_page_number}}"   onMouseOver="this.style.color='#0F0'"  onMouseOut="this.style.color='#00F'" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <br><br><br><br>
+            <h4 class="text-center">No Post Yet</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let adminname=document.getElementById('id1');
+    let date=document.getElementById('id2');
+    let image=document.getElementById('id3');
+    let video=document.getElementById('id4');
+    let poll=document.getElementById('id5');
+
+    adminname.addEventListener('input',check)
+    date.addEventListener('input',check)
+    image.addEventListener('input',check)
+    video.addEventListener('input',check)
+    poll.addEventListener('input',check)
+
+
+    function check(){
+        if( adminname.value.trim()==''  && date.value.trim() == '' && image.value.trim() =='' && video.value.trim() == '' && poll.value.trim() == ''){
+            document.getElementById("btn").setAttribute("hidden",'');   
+        }
+        else{
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+        let reset_btn = document.querySelector('.datetime-reset-button')
+        console.log(reset_btn);
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script rel="javascript" type="text/javascript">
+
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        console.log(id)
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { pid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_user_post' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("Post deleted successfuly!");
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+                }
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0){
+                    let my_data_div  = document.getElementById('all-data-row')
+                    my_data_div.remove()
+
+                    let container_div = document.getElementById('container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Post Yet</h4>`
+                    container_div.innerHTML = new_content
+                }
+            },
+        })
+    });
+
+    let all_inputs = document.querySelectorAll('.one-select-input-custom');
+    if(all_inputs){
+        all_inputs.forEach(inp=>{
+            inp.addEventListener('click',()=>{
+                all_inputs.forEach(input=>{
+                    input.checked = false;
+                })
+                inp.checked = true;
+            })
+        })
+    }
+
+</script>
+
+{% endblock %}

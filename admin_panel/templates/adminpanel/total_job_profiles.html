@@ -1,0 +1,229 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Total Job Profile
+{% endblock %}
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid" id="container-div">
+            {% if job_profiles %}
+            <div class="row" id="all-data-row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <form method="get" class="row gy-2 gx-3 align-items-center"
+                                    action="{% url 'admin_panel_search_job_profile' %}">
+                                    <h4 class="card-title m-0 pe-4">All Job Profile</h4>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="first name"
+                                            name="first_name" id="id1" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="last name"
+                                            name="last_name" id="id2" autocomplete="off">
+                                    </div>
+
+
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="skill"
+                                            name="skill" id="id4" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-2">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive">
+
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">First Name</th>
+                                            <th class="align-middle">Last Name</th>
+                                            <th class="align-middle">Skill</th>
+                                            <th class="align-middle">Created at</th>
+                                            <th class="align-middle">Delete</th>
+                                            <th class="align-middle">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for j in job_profiles %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                {{ forloop.counter0|add:job_profiles.start_index}}
+                                            </td>
+                                            <td>{{j.first_name}}
+                                            </td>
+                                            <td>{{j.last_name}}</td>
+
+                                            </td>
+                                            <td>
+                                                <div class="word-clamping"> {% for skill in j.skill.all%}
+                                                    {{skill.skill}}
+                                                    <br>
+                                                    {% endfor %}
+                                                </div>
+                                            </td>
+
+                                            <td> {{j.created_at}}</td>
+
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                                    data-sid={{j.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <a href="{{front_end_server}}/{{jobprofile}}/{{j.profile.user.username}}" type="button" target="_blank"
+                                                    class="btn btn-primary btn-rounded waves-effect waves-light">
+                                                    <i class="fas fa-eye "></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end table-responsive -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+            {% if job_profiles %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if job_profiles.has_previous %}
+                        <li class="page-item ">
+                            <a href="?page={{job_profiles.previous_page_number}}" class="page-link"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"><i
+                                    class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{job_profiles.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+
+                        <li class="page-item">
+                            {{job_profiles.paginator.num_pages}}
+                        </li>
+
+                        {% if job_profiles.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{job_profiles.next_page_number}}" onMouseOver="this.style.color='#0F0'"
+                                onMouseOut="this.style.color='#00F'" class="page-link"><i
+                                    class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <br><br><br><br>
+            <h4 class="text-center">No Job Profile Yet</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    let first_name = document.getElementById('id1');
+    let last_name = document.getElementById('id2');
+    let skill = document.getElementById('id4');
+
+    first_name.addEventListener('input', check)
+    last_name.addEventListener('input', check)
+    skill.addEventListener('input', check)
+
+    function check() {
+        if (skill.value == '' && first_name.value == '' && last_name.value == '') {
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { jid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_job_profile' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("Job profile deleted successfuly!");
+
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+
+                }
+
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0) {
+                    let my_data_div = document.getElementById('all-data-row')
+                    my_data_div.remove()
+
+                    let container_div = document.getElementById('container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Job Profile Yet</h4>`
+                    container_div.innerHTML = new_content
+                }
+
+            },
+
+        })
+    });
+</script>
+
+
+{% endblock %}

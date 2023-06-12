@@ -1,0 +1,166 @@
+{% extends 'adminpanel/base.html' %}
+
+
+{% block title %}
+   Total Inactive User
+{% endblock %}
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            {% if users %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <form action="{% url 'admin_panel_search_inactive_user' %}" method="get"
+                                    class="row gy-2 gx-3 align-items-center">
+                                    <h4 class="card-title m-0 pe-4">All Inactive Users</h4>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="first name"
+                                            name="first_name" id="1st" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="last name"
+                                            name="last_name" id="2nd" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text" class="form-control form-control-sm bg-light border-light rounded" placeholder="username"
+                                            name="username" id="3rd" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive">
+
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">First Name</th>
+                                            <th class="align-middle">Last Name</th>
+                                            <th class="align-middle">username</th>
+                                            <th class="align-middle">Email</th>
+                                            <th class="align-middle">Is Active</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for u in users %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                           {{ forloop.counter0|add:users.start_index }}
+                                            </td>
+                                            <td>{{u.first_name}}</td>
+                                            <td>{{u.last_name}}</td>
+                                            <td>{{u.username}}</td>
+                                            <td>{{u.email}}</td>
+
+                                            <td><i class="fa fa-times-circle mx-3 text-danger"></i></td>
+
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end table-responsive -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            {% endif %}
+            {% if users %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if users.has_previous %}
+                        <li class="page-item ">
+                            <a href="?page={{users.previous_page_number}}" class="page-link"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"><i
+                                    class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{users.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+
+                        <li class="page-item">
+                            {{users.paginator.num_pages}}
+                        </li>
+
+                        {% if users.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{users.next_page_number}}" onMouseOver="this.style.color='#0F0'"
+                                onMouseOut="this.style.color='#00F'" class="page-link"><i
+                                    class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <br><br><br><br>
+            <h4 class="text-center">No User Yet</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let firstname = document.getElementById('1st');
+    let lastname = document.getElementById('2nd');
+    let username = document.getElementById('3rd');
+
+    firstname.addEventListener('input', check)
+    lastname.addEventListener('input', check)
+    username.addEventListener('input', check)
+
+    function check() {
+        if (firstname.value == '' && lastname.value == '' && username.value == '') {
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,450 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+
+<head>
+
+    <style>
+        .emp-profile {
+            padding: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+        }
+
+        .profile-img {
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 70%;
+            height: 100%;
+        }
+
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+            margin-top: -20%;
+            width: 70%;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            background: #212529b8;
+        }
+
+        .profile-img .file input {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .profile-head h5 {
+            color: #0062cc;
+        }
+
+        .profile-head h6 {
+            color: #0062cc;
+        }
+
+        .profile-edit-btn {
+            border: none;
+            border-radius: 1.5rem;
+            width: 70%;
+            padding: 2%;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .proile-rating {
+            font-size: 12px;
+            color: #818182;
+            margin-top: 5%;
+        }
+
+        .proile-rating span {
+            color: #495057;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .profile-head .nav-tabs {
+            margin-bottom: 5%;
+        }
+
+        .profile-head .nav-tabs .nav-link {
+            font-weight: 600;
+            border: none;
+        }
+
+        .profile-head .nav-tabs .nav-link.active {
+            border: none;
+            border-bottom: 2px solid #0062cc;
+        }
+
+        .profile-work {
+            padding: 14%;
+            margin-top: -15%;
+        }
+
+        .profile-work p {
+            font-size: 12px;
+            color: #818182;
+            font-weight: 600;
+            margin-top: 10%;
+        }
+
+        .profile-work a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .profile-work ul {
+            list-style: none;
+        }
+
+        .profile-tab label {
+            font-weight: 600;
+        }
+
+        .profile-tab p {
+            font-weight: 600;
+
+        }
+
+
+        .image {
+            width: 150px !important;
+            height: 150px !important;
+            margin: auto;
+            background-color: #6eafd4;
+            border-radius: 100%;
+            position: relative;
+        }
+
+        .inner {
+            background-color: #ddd;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .inputfile {
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+
+        }
+
+        .inputfile+label {
+            font-size: 1.25rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .inputfile+label svg {
+            fill: #fff;
+        }
+
+        .btn-edits:hover {
+            background-color: #080a0c;
+            color: #ddd;
+        }
+    </style>
+</head>
+
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <div class="container emp-profile">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="outer">
+                            <div class="position-relative m-auto" style="width: fit-content;">
+                                {% if profileimage.picture.picture %}
+                                <img src="{{s3_bucket_link}}{{profileimage.picture.picture}}" class="image" alt="">
+                                {% else %}
+                                <img src="{% static 'adminpanel/yo-logo.png' %}" class="image" alt="">
+                                {% endif %}
+                                <div class="inner">
+                                    <form action="{% url 'admin_panel_update_profile_picture' %}" method="POST"
+                                        enctype="multipart/form-data" id="original-form-profile-picture"
+                                        class="form-class">
+                                        {% csrf_token %}
+                                        <input id="original-input-profile-picture" class="inputfile" type="file"
+                                            name="picture" accept="image/*" onchange="UploadImageHandler(event)">
+                                        <label><i class="fa fa-camera"></i></label>
+                                        <button type="submit" hidden>submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head row">
+
+                            <h5>
+                                Welcome {{user.username}}
+                            </h5>
+
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <p class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab"
+                                        aria-controls="home" aria-selected="true">About</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a type="button" href="{% url 'admin_panel_update_profile' %}"
+                            class="btn btn-rounded btn-sm btn-secondary btn-edits">
+                            Edit Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <i class="fa fa-facebook-square"></i>
+                            <a href="">Facebook</a><br />
+                            <i class="fa fa-instagram"></i>
+                            <a href="">Instagram</a><br />
+                            <i class="fa fa-linkedin"></i>
+                            <a href="">Linkedin</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.first_name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.last_name}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Username</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.username}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.gender}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Date Of Birth</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.birth_date}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Birth Place</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.birth_place}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Bio</label>
+                                    </div>
+                                    <p align="justify">{{profile.bio}}</p>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br />
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </form> -->
+            </div>
+
+            <!-- Modal -->
+            <div class="position-fixed align-items-center justify-content-center" id="imagepreviewModalCover"
+                style="top: 0;left: 0;right: 0;bottom: 0;background-color: #d3d3d3e0;display: none;z-index: 100;">
+                <div id="imagepreviewModal" style="width: 500px;">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Profile Image</h5>
+                            </div>
+                            <!-- <form action="{% url 'admin_panel_update_profile_picture' %}" method="POST"
+                                enctype="multipart/form-data">
+                                {% csrf_token %} -->
+                            <div class="modal-body" id="imagepreviewModalBody">
+                                <img src="" alt="" class="mx-auto"
+                                    style="max-width: 400px;width: auto;max-height: 200px;display: block;height: auto;">
+                                <input type="image" name="picture" hidden />
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="closeImagePreviewModal()">Close</button>
+                                <button type="submit" class="btn btn-primary"
+                                    onclick="UploadProfilePicture()">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const UploadImageHandler = (e) => {
+        let file_ = e.target.files[0]
+        let file_url = URL.createObjectURL(file_)
+
+        let md_cover = document.getElementById('imagepreviewModalCover')
+
+        let modal_image = document.querySelector('#imagepreviewModalBody img')
+        let modal_input = document.querySelector('#imagepreviewModalBody input')
+        let o_input = document.querySelector('#original-input-profile-picture')
+
+        modal_image.src = file_url
+        modal_input.value = o_input.value
+        md_cover.style.display = 'flex'
+
+    }
+
+    const UploadProfilePicture = () => {
+        let new_form = document.querySelector('form#original-form-profile-picture')
+        new_form.submit()
+        console.log(new_form)
+    }
+
+    const closeImagePreviewModal = () => {
+        let md_cover = document.getElementById('imagepreviewModalCover')
+
+        md_cover.style.display = 'none'
+
+
+    }
+
+</script>
+
+
+
+{% endblock %}

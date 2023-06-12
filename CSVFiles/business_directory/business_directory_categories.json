@@ -1,0 +1,602 @@
+[
+    {
+        "Restaurants" : [
+            {
+                "name" : "Asian"
+            },
+            {
+                "name" : "Burger"
+            },
+            {
+                "name" : "Chinese"
+            },
+            {
+                "name" : "Cuban"
+            },
+            {
+                "name" : "European"
+            },
+            {
+                "name" : "Fast Food"
+            },
+            {
+                "name" : "Fine Dining"
+            },
+            {
+                "name" : "Food Courts"
+            },
+            {
+                "name" : "French"
+            },
+            {
+                "name" : "Fusion"
+            },
+            {
+                "name" : "Greek"
+            },
+            {
+                "name" : "Grill"
+            },
+            {
+                "name" : "Hot Dog"
+            },
+            {
+                "name" : "Indian"
+            },
+            {
+                "name" : "Italian"
+            },
+            {
+                "name" : "Japanese"
+            },
+            {
+                "name" : "Korean"
+            },
+            {
+                "name" : "Mexican"
+            },
+            {
+                "name" : "Pakistani"
+            },
+            {
+                "name" : "Seafood"
+            },
+            {
+                "name" : "Middle Eastern"
+            },
+            {
+                "name" : "Sushi"
+            },
+            {
+                "name" : "Street Food"
+            },
+            {
+                "name" : "Turkish"
+            },
+            {
+                "name" : "Vegan"
+            },
+            {
+                "name" : "World Cuisine)"
+            }
+        ]
+    },
+    {
+        "Automotive" : [
+            {
+                "name" :"Air Transport"
+            },
+            {
+                "name" :"Air Travel"
+            },
+            {
+                "name" :"Auto Dealer"
+            },
+            {
+                "name" :"Auto Insurance"
+            },
+            {
+                "name" :"Auto services"
+            },
+            {
+                "name" :"Aviation"
+            },
+            {
+                "name" :"Bicycles"
+            },
+            {
+                "name" :"Boats"
+            },
+            {
+                "name" :"Bus line"
+            },
+            {
+                "name" :"Car Parts"
+            },
+            {
+                "name" :"Car Rental"
+            },
+            {
+                "name" :"Cargo Services"
+            },
+            {
+                "name" :"Courier Services"
+            },
+            {
+                "name" :"Car Wash"
+            },
+            {
+                "name" :"Logistics"
+            },
+            {
+                "name" :"Marine Services"
+            },
+            {
+                "name" :"Mechanics"
+            },
+            {
+                "name" :"Motorbikes"
+            },
+            {
+                "name" :"Package Shipping"
+            },
+            {
+                "name" :"Petrol Station"
+            },
+            {
+                "name" :"Ports"
+            },
+            {
+                "name" :"Rail Transport"
+            },
+            {
+                "name" :"Vehicle Manufactures"
+            }
+        ]
+    },
+    {
+        "Medical" : [
+            {
+                "name" : "Addictions Consultants"
+            },
+            {
+                "name" : "Anesthesiologists"
+            },
+            {
+                "name" : "Community Health Centers"
+            },
+            {
+                "name" : "Dermatology"
+            },
+            {
+                "name" : "Dietitian"
+            },
+            {
+                "name" : "Disability Services"
+            },
+            {
+                "name" : "Emergency Care"
+            },
+            {
+                "name" : "Eye Care"
+            },
+            {
+                "name" : "Homeopaths"
+            },
+            {
+                "name" : "Health Care"
+            },
+            {
+                "name" : "Hospital"
+            },
+            {
+                "name" : "Infertility"
+            },
+            {
+                "name" : "Medical Clinic"
+            },
+            {
+                "name" : "Nutritionists"
+            },
+            {
+                "name" : "Ophthalmologists"
+            },
+            {
+                "name" : "Physicians"
+            },
+            {
+                "name" : "Physiotherapy"
+            },
+            {
+                "name" : "Surgeons"
+            },
+            {
+                "name" : "STD and HIV"
+            },
+            {
+                "name" : "Urgent Care"
+            },
+            {
+                "name" : "Urologists"
+            },
+            {
+                "name" : "Veterinary Services"
+            }
+        ]
+    },
+    {
+        "Shopping" : [
+            {
+                "name" : "Aquariums"
+            },
+            {
+                "name" : "Books"
+            },
+            {
+                "name" : "Brand Name"
+            },
+            {
+                "name" : "Camping and outdoor"
+            },
+            {
+                "name" : "Cigars and Tobacco"
+            },
+            {
+                "name" : "Clothing and Accessories"
+            },
+            {
+                "name" : "Department Stores"
+            },
+            {
+                "name" : "Discount Stores"
+            },
+            {
+                "name" : "Electrical Goods"
+            },
+            {
+                "name" : "Fishing Equipment"
+            },
+            {
+                "name" : "Gadgets"
+            },
+            {
+                "name" : "General Merchandise"
+            },
+            {
+                "name" : "General Shopping"
+            },
+            {
+                "name" : "Gifts"
+            },
+            {
+                "name" : "Hardware Stores"
+            },
+            {
+                "name" : "Home and garden"
+            },
+            {
+                "name" : "Jewellery"
+            },
+            {
+                "name" : "Kids"
+            },
+            {
+                "name" : "Leather Products"
+            },
+            {
+                "name" : "Mobile Phone shops"
+            },
+            {
+                "name" : "Music"
+            },
+            {
+                "name" : "Optical Shops"
+            },
+            {
+                "name" : "Outlets"
+            },
+            {
+                "name" : "Pet Shops"
+            },
+            {
+                "name" : "Shopping Centers"
+            },
+            {
+                "name" : "Secondhand Stores"
+            },
+            {
+                "name" : "Textile"
+            }
+        ]
+    },
+    {
+        "Law" : [
+            {
+                "name" : "Aviation Law"
+            },
+            {
+                "name" : "Barristers"
+            },
+            {
+                "name" : "Business Law"
+            },
+            {
+                "name" : "Clinical Negligence"
+            },
+            {
+                "name" : "Copyright Consultants"
+            },
+            {
+                "name" : "Employment Law"
+            },
+            {
+                "name" : "Environmental Law"
+            },
+            {
+                "name" : "Personal Injury Law"
+            },
+            {
+                "name" : "Property Law"
+            },
+            {
+                "name" : "Trademark Attorney"
+            }
+        ]
+    },
+    {
+        "Real Estate" : [
+            {
+                "name" : "Apartment Rental"
+            },
+            {
+                "name" : "Auctions"
+            },
+            {
+                "name" : "Building Maintenance"
+            },
+            {
+                "name" : "Buildings"
+            },
+            {
+                "name" : "Cleaning"
+            },
+            {
+                "name" : "Commercial Property"
+            },
+            {
+                "name" : "Fire Safety Equipment"
+            },
+            {
+                "name" : "Home Improvement"
+            },
+            {
+                "name" : "Interior Design"
+            },
+            {
+                "name" : "Property Consultants"
+            },
+            {
+                "name" : "Property Development"
+            },
+            {
+                "name" : "Property management"
+            },
+            {
+                "name" : "real estate Agents"
+            },
+            {
+                "name" : "Renovation"
+            },
+            {
+                "name" : "Security"
+            },
+            {
+                "name" : "Vacation rentals"
+            },
+            {
+                "name" : "Warehouses"
+            }
+        ]
+    },
+    {
+        "Construction" : [
+            {
+                "name" : "Aluminium Openings"
+            },
+            {
+                "name" : "Architectural Services"
+            },
+            {
+                "name" : "Building Materials"
+            },
+            {
+                "name" : "Chemicals"
+            },
+            {
+                "name" : "Concrete"
+            },
+            {
+                "name" : "Construction"
+            },
+            {
+                "name" : "Construction Equipment"
+            },
+            {
+                "name" : "Construction Services"
+            },
+            {
+                "name" : "Construction Training"
+            },
+            {
+                "name" : "Decorators"
+            },
+            {
+                "name" : "Doors"
+            },
+            {
+                "name" : "Drywall"
+            },
+            {
+                "name" : "Excavators"
+            },
+            {
+                "name" : "Fencing"
+            },
+            {
+                "name" : "Forestry"
+            },
+            {
+                "name" : "Gardeners"
+            },
+            {
+                "name" : "Glass Manufacturers"
+            },
+            {
+                "name" : "Handyman"
+            },
+            {
+                "name" : "Landscaping"
+            },
+            {
+                "name" : "Locksmiths"
+            },
+            {
+                "name" : "Lumbers"
+            },
+            {
+                "name" : "Metal"
+            },
+            {
+                "name" : "Paving"
+            },
+            {
+                "name" : "Plumbers"
+            },
+            {
+                "name" : "Roofing"
+            },
+            {
+                "name" : "Sandblasting"
+            },
+            {
+                "name" : "Stone"
+            },
+            {
+                "name" : "Windows"
+            }
+        ]
+    },
+    {
+        "Computers & Internet" : [
+            {
+                "name" : "Communications"
+            },
+            {
+                "name" : "Web Services"
+            },
+            {
+                "name" : "Networking"
+            },
+            {
+                "name" : "Online Content"
+            },
+            {
+                "name" : "Computer Software Solutions"
+            },
+            {
+                "name" : "Software Applications"
+            },
+            {
+                "name" : "Information technology"
+            }
+        ]
+    },
+    {
+        "Entertainment & Media" : [
+            {
+                "name" : "Sports"
+            },
+            {
+                "name" : "Photography"
+            },
+            {
+                "name" : "Pets & Animals"
+            },
+            {
+                "name" : "Pubs and Clubs"
+            },
+            {
+                "name" : "Newspaper"
+            },
+            {
+                "name" : "Leisure"
+            },
+            {
+                "name" : "Music"
+            },
+            {
+                "name" : "fashion"
+            },
+            {
+                "name" : "Culture"
+            }
+        ]
+    },
+    {
+        "Events & Conferences" : [
+            {
+                "name" : "Weddings"
+            },
+            {
+                "name" : "Events Services"
+            },
+            {
+                "name" : "Event Equipment"
+            },
+            {
+                "name" : "Conferences"
+            }
+        ]
+    },
+    {
+        "Schools" : [
+            {
+                "name" : "Dance Schools"
+            },
+            {
+                "name" : "Elementary Schools"
+            },
+            {
+                "name" : "Fashion Schools"
+            },
+            {
+                "name" : "High Schools"
+            },
+            {
+                "name" : "International Schools"
+            },
+            {
+                "name" : "Music Schools"
+            },
+            {
+                "name" : "Pre-School"
+            },
+            {
+                "name" : "Primary Schools"
+            },
+            {
+                "name" : "Private Schools"
+            },
+            {
+                "name" : "Public Schools"
+            },
+            {
+                "name" : "Religious Schools"
+            },
+            {
+                "name" : "Secondary Schools"
+            }
+        ]
+    }
+]
+

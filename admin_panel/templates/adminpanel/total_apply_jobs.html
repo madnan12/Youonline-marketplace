@@ -1,0 +1,412 @@
+{% extends 'adminpanel/base.html' %}
+{% load pagination_tags %}
+
+{% block title %}
+Total Apply Job
+{% endblock %}
+{% block content %}
+
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+
+{% include 'adminpanel/partial/navbar.html' %}
+{% include 'adminpanel/partial/leftnavbar.html' %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid" id="container-div">
+            {% if search %}
+            <div class="row" id="all-data-row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <form method="get" class="row gy-2 gx-3 align-items-center" action="">
+                                    <h4 class="card-title m-0 pe-4">Search Apply </h4>
+
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="full name" name="full_name" id="id1" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="email" name="email" id="id2" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-light border-light rounded"
+                                            placeholder="mobile" name="mobile" id="id3" autocomplete="off">
+                                    </div>
+
+
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btn"
+                                            hidden>search</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <br>
+                            <div class="table-responsive" id="search-container-div">
+                                {% if search_my_job_applys %}
+                                <table class="table align-middle table-nowrap mb-0" id="search-all-data-row">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px">
+
+                                            </th>
+                                            <th class="align-middle">Sr#</th>
+                                            <th class="align-middle">Full Name</th>
+                                            <th class="align-middle">Job Profile</th>
+                                            <th class="align-middle">Email</th>
+                                            <th class="align-middle">Mobile</th>
+                                            <th class="align-middle">Education</th>
+                                            <th class="align-middle">Resume/CV</th>
+                                            <th class="align-middle">Created at</th>
+                                            <th class="align-middle">Delete</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        {% for j in search_my_job_applys %}
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                {{ forloop.counter0|add:search_my_job_applys.start_index}}
+                                            </td>
+                                            <td>{{j.full_name}}
+                                            <td>{{j.jobprofile.profile.user.username}}
+                                            </td>
+
+                                            </td>
+                                            <td>{{j.email}}</td>
+                                            <td> {{j.mobile}}</td>
+                                            <td> {{j.education}}</td>
+                                            <td> <a href="{{s3_bucket_link}}{{j.cv}}" target="_blank">Resume</a></td>
+
+                                            <td> {{j.created_at}}</td>
+
+                                            <td>
+                                                {% csrf_token %}
+                                                <button type="button"
+                                                    class="btn btn-danger btn-rounded waves-effect waves-light btn-delete-search"
+                                                    data-sid={{j.id}}>
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <br><br><br><br>
+                                <h4 class="text-center">No Result Found</h4>
+                                <br><br>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% if search_my_job_applys %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul
+                        class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+                        {% if search_my_job_applys.has_previous %}
+                        <li class="page-item ">
+                            <a href="?{% url_replace request 'page' search_my_job_applys.previous_page_number %}"
+                                class="page-link" onMouseOver="this.style.color='#0F0'"
+                                onMouseOut="this.style.color='#00F'"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item">
+                            {{search_my_job_applys.number}}
+                        </li>
+
+                        <li class="page-item">
+                            <span class="mx-2"> of </span>
+                        </li>
+
+                        <li class="page-item">
+                            {{search_my_job_applys.paginator.num_pages}}
+                        </li>
+
+                        {% if search_my_job_applys.has_next %}
+                        <li class="page-item">
+                            <a href="?{% url_replace request 'page' search_my_job_applys.next_page_number %}"
+                                onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"
+                                class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% else %}
+{% if job_applys %}
+<div class="row" id="all-data-row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <form method="get" class="row gy-2 gx-3 align-items-center" action="">
+                        <h4 class="card-title m-0 pe-4">All Apply </h4>
+
+                        <div class="col-sm-auto">
+                            <input type="text" class="form-control form-control-sm bg-light border-light rounded"
+                                placeholder="full name" name="full_name" id="id1" autocomplete="off">
+                        </div>
+                        <div class="col-sm-auto">
+                            <input type="text" class="form-control form-control-sm bg-light border-light rounded"
+                                placeholder="email" name="email" id="id2" autocomplete="off">
+                        </div>
+                        <div class="col-sm-auto">
+                            <input type="text" class="form-control form-control-sm bg-light border-light rounded"
+                                placeholder="mobile" name="mobile" id="id3" autocomplete="off">
+                        </div>
+
+
+
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success btn-sm" id="btn" hidden>search</button>
+                        </div>
+
+                    </form>
+                </div>
+                <br>
+                <div class="table-responsive">
+
+                    <table class="table align-middle table-nowrap mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 20px">
+
+                                </th>
+                                <th class="align-middle">Sr#</th>
+                                <th class="align-middle">Full Name</th>
+                                <th class="align-middle">Job Profile</th>
+                                <th class="align-middle">Email</th>
+                                <th class="align-middle">Mobile</th>
+                                <th class="align-middle">Education</th>
+                                <th class="align-middle">Resume/CV</th>
+                                <th class="align-middle">Created at</th>
+                                <th class="align-middle">Delete</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            {% for j in job_applys %}
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+                                    {{ forloop.counter0|add:job_applys.start_index}}
+                                </td>
+                                <td>{{j.full_name}}
+                                <td>{{j.jobprofile.profile.user.username}}
+                                </td>
+
+                                </td>
+                                <td>{{j.email}}</td>
+                                <td> {{j.mobile}}</td>
+                                <td> {{j.education}}</td>
+                                <td> <a href="{{s3_bucket_link}}{{j.cv}}" target="_blank">Resume</a></td>
+
+                                <td> {{j.created_at}}</td>
+
+                                <td>
+                                    {% csrf_token %}
+                                    <button type="button"
+                                        class="btn btn-danger btn-rounded waves-effect waves-light btn-delete"
+                                        data-sid={{j.id}}>
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% if job_applys %}
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="pagination pagination-rounded justify-content-center align-items-center gap-1 mt-3 mb-4 pb-1">
+
+            {% if jobs.has_previous %}
+            <li class="page-item ">
+                <a href="?page={{job_applys.previous_page_number}}" class="page-link"
+                    onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#00F'"><i
+                        class="mdi mdi-chevron-left"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+            </li>
+            {% endif %}
+            <li class="page-item">
+                {{job_applys.number}}
+            </li>
+
+            <li class="page-item">
+                <span class="mx-2"> of </span>
+            </li>
+
+
+            <li class="page-item">
+                {{job_applys.paginator.num_pages}}
+            </li>
+
+            {% if job_applys.has_next %}
+            <li class="page-item">
+                <a href="?page={{job_applys.next_page_number}}" onMouseOver="this.style.color='#0F0'"
+                    onMouseOut="this.style.color='#00F'" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+            </li>
+            {% else %}
+
+            <li class="page-item disabled">
+                <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% else %}
+<br><br><br><br>
+<h4 class="text-center">No Appy Yet</h4>
+{% endif %}
+
+</div>
+</div>
+</div>
+
+{% endif %}
+
+
+
+<script>
+    let full_name = document.getElementById('id1');
+    let email = document.getElementById('id2');
+    let mobile = document.getElementById('id3');
+
+    full_name.addEventListener('input', check)
+    email.addEventListener('input', check)
+    mobile.addEventListener('input', check)
+
+    function check() {
+        if (full_name.value == '' && email.value == '' && mobile.value == '') {
+            document.getElementById("btn").setAttribute("hidden", '');
+        }
+        else {
+            document.getElementById("btn").removeAttribute("hidden");
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { jid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_job_apply' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("Job apply deleted successfuly!");
+
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+
+                }
+
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0) {
+                    let my_data_div = document.getElementById('all-data-row')
+                    my_data_div.remove()
+
+                    let container_div = document.getElementById('container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Apply Yet</h4><br><br>`
+                    container_div.innerHTML = new_content
+                }
+            },
+
+        })
+    });
+</script>
+
+<script rel="javascript" type="text/javascript">
+    $("tbody").on("click", ".btn-delete-search", function () {
+        output = "";
+        let id = $(this).attr("data-sid");
+        let csrf = $("input[name=csrfmiddlewaretoken]").val();
+        mydata = { jid: id, csrfmiddlewaretoken: csrf }
+        mythis = this;
+        $.ajax({
+            url: "{% url 'admin_panel_delete_job_apply' %}",
+            method: "POST",
+            data: mydata,
+            success: function (data) {
+                alert("Job apply deleted successfuly!");
+
+                if (data.status == 1) {
+                    let my_element = $(mythis).closest("tr")
+                    my_element.remove()
+
+                }
+
+                let myTbody = document.getElementById('table-body')
+                if (myTbody.childElementCount == 0) {
+                    let my_data_div = document.getElementById('search-all-data-row')
+                    my_data_div.remove()
+
+                    let container_div = document.getElementById('search-container-div')
+                    let new_content = `<br><br><br><br><h4 class="text-center">No Result Found</h4><br><br>`
+                    container_div.innerHTML = new_content
+                }
+            },
+
+        })
+    });
+</script>
+
+
+{% endblock %}
